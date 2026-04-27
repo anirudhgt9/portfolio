@@ -809,46 +809,29 @@ const certs: CertEntry[] = [
   },
 ];
 
-function CertLogoImg({
-  src,
-  fallbackText,
-  fallbackBg,
-  fallbackColor,
-}: {
-  src: string;
-  fallbackText: string;
-  fallbackBg: string;
-  fallbackColor: string;
-}) {
+function CertLogo({ logo }: { logo: CertEntry["logo"] }) {
   const [errored, setErrored] = useState(false);
-  if (errored) {
-    return (
-      <div
-        className="w-10 h-10 rounded-lg shrink-0 flex items-center justify-center text-[11px] font-dm-sans font-light select-none"
-        style={{ backgroundColor: fallbackBg, color: fallbackColor }}
-      >
-        {fallbackText}
+
+  // Fixed 48×48 wrapper for every logo — keeps all cards aligned
+  const wrap = (content: React.ReactNode) => (
+    <div className="w-12 h-12 shrink-0 rounded-xl overflow-hidden flex items-center justify-center bg-white">
+      {content}
+    </div>
+  );
+
+  const tealFallback = (text: string) =>
+    wrap(
+      <div className="w-full h-full bg-[#0F6E56] flex items-center justify-center text-white text-[11px] font-dm-sans font-light select-none rounded-xl">
+        {text}
       </div>
     );
-  }
-  return (
-    /* eslint-disable-next-line @next/next/no-img-element */
-    <img
-      src={src}
-      alt=""
-      onError={() => setErrored(true)}
-      className="h-10 w-auto max-w-[80px] object-contain"
-    />
-  );
-}
 
-function CertLogo({ logo }: { logo: CertEntry["logo"] }) {
-  if (!logo) return <div className="w-10 h-10 shrink-0" />;
+  if (!logo) return <div className="w-12 h-12 shrink-0" />;
 
   if (logo.type === "initials") {
-    return (
+    return wrap(
       <div
-        className="w-10 h-10 rounded-lg shrink-0 flex items-center justify-center text-[11px] font-dm-sans font-light select-none"
+        className="w-full h-full flex items-center justify-center text-[11px] font-dm-sans font-light select-none"
         style={{ backgroundColor: logo.bg, color: logo.color }}
       >
         {logo.text}
@@ -856,15 +839,16 @@ function CertLogo({ logo }: { logo: CertEntry["logo"] }) {
     );
   }
 
-  return (
-    <div className="w-10 h-10 shrink-0 flex items-center justify-center">
-      <CertLogoImg
-        src={logo.src}
-        fallbackText={logo.fallbackText}
-        fallbackBg={logo.fallbackBg}
-        fallbackColor={logo.fallbackColor}
-      />
-    </div>
+  if (errored) return tealFallback(logo.fallbackText);
+
+  return wrap(
+    /* eslint-disable-next-line @next/next/no-img-element */
+    <img
+      src={logo.src}
+      alt=""
+      onError={() => setErrored(true)}
+      style={{ width: 40, height: 40, objectFit: "contain" }}
+    />
   );
 }
 
