@@ -142,9 +142,9 @@ function About() {
           className="font-fraunces font-light leading-tight text-[#0F0F0F] mb-8 md:mb-10"
           style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
         >
-          Strategic by nature.{" "}
+          Commercial by trade.{" "}
           <em style={{ fontStyle: "italic", color: "#0F6E56" }}>
-            Builder by choice.
+            Curious by nature.
           </em>
         </h2>
 
@@ -569,7 +569,7 @@ function Builds() {
             icon={<IconTV />}
             title="Tilfaz"
             description="A social TV tracking app: Letterboxd for television. Built with zero prior coding experience using Claude. Features TMDB search, genre swimlanes, a follow system, activity feeds, and ratings."
-            tech={["Next.js", "Supabase", "TMDB API", "Vercel"]}
+            tech={["Next.js", "Supabase", "TMDB API", "Vercel", "Claude"]}
             link="https://tilfaz.vercel.app"
             linkLabel="Visit Tilfaz ↗"
           />
@@ -582,7 +582,7 @@ function Builds() {
           <BuildCard
             icon={<IconFlask />}
             title="Google × IMDA Challenge"
-            description="Building an AI workflow for a real partnerships problem; selected as one of 500 participants in Singapore's Skills Ignition AI Challenge."
+            description="Building an AI workflow for a real partnerships problem; selected as one of 500 professionals in Singapore's Skills Ignition AI Challenge."
             tech={["Google Gemini", "In progress"]}
             comingSoon
           />
@@ -813,8 +813,8 @@ function Certifications() {
           className="font-fraunces font-light leading-tight text-[#0F0F0F] mb-8 md:mb-10"
           style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
         >
-          How I keep{" "}
-          <em style={{ fontStyle: "italic", color: "#0F6E56" }}>sharpening.</em>
+          The learning{" "}
+          <em style={{ fontStyle: "italic", color: "#0F6E56" }}>never stops.</em>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
