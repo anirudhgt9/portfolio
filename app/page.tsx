@@ -9,9 +9,7 @@ function Nav() {
     <header className="fixed top-0 inset-x-0 z-50 bg-[#0F0F0F]">
       <div className="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-[#0F6E56] text-white flex items-center justify-center text-[11px] font-dm-sans font-light shrink-0 select-none">
-            AT
-          </div>
+          <img src="/avatar-nav.png" alt="Anirudh Thandu" style={{ width: 32, height: 32, borderRadius: "50%", objectFit: "cover", objectPosition: "top center", display: "block", flexShrink: 0 }} />
           <span className="font-fraunces text-[20px] font-light tracking-tight text-white">
             Anirudh Thandu
           </span>
