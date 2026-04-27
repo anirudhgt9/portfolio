@@ -376,7 +376,7 @@ function Work() {
             <div className="mt-4 pt-5 border-t border-black/10">
               <RoleLabel
                 role="Partnerships Manager – Asia"
-                meta="May 2023 – Feb 2026"
+                meta="May 2023 – March 2026"
               />
 
               <SubHead>Product Partnerships</SubHead>
