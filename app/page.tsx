@@ -219,21 +219,35 @@ function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 text-[16px] font-dm-sans font-light text-[#555555] leading-[1.75]">
             <p>
-              Nearly a decade building partner ecosystems across APAC — starting
-              with taking Sapaad from zero to a fully operational Singapore
-              business with a cross-functional team, to scaling Xero&rsquo;s App
-              Store across Asia through product integrations, channel
-              partnerships, and commercial strategy.
+              I moved from Dubai to Singapore in 2018 to build Sapaad&rsquo;s APAC
+              business from the ground up. No playbook, no team, just a market
+              to crack. From there I joined Xero, scaling their partner
+              ecosystem across Asia through product integrations, channel
+              partnerships, and commercial strategy across 12 markets. Eight
+              years after landing in Singapore, I found myself between roles.
+            </p>
+            <p>So I started building.</p>
+            <p>
+              Tilfaz, a social TV tracking app I wanted to exist. An automated
+              job search pipeline. This portfolio. All built using Claude with
+              no prior coding experience. I went from knowing nothing about how
+              software gets made to shipping full-stack apps because I was
+              curious, and because I could.
+            </p>
+            <p>
+              That same instinct, spot a gap, figure it out, build the thing,
+              is what I&rsquo;ve brought to partnerships for a decade.
             </p>
             <p>
               I specialise in navigating Asia&rsquo;s fragmented markets, negotiating
               complex commercial agreements, and bridging technical, legal, and
-              business teams. I turn market gaps into partnership opportunities.
+              business teams. I turn market gaps into partnership opportunities,
+              and apparently, occasionally into apps.
             </p>
             <p>
-              When I&rsquo;m not doing that, I build things. Tilfaz (a social TV
-              tracking app), an automated job search pipeline, this portfolio —
-              all built using Claude with no prior coding experience.
+              When I&rsquo;m not in spreadsheets or terminal windows, I&rsquo;m playing
+              padel, cooking something that probably needed more salt, or
+              watching too much TV. Tilfaz helps with that last one.
             </p>
           </div>
 
