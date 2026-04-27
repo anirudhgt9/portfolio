@@ -101,15 +101,18 @@ function Hero() {
 
           {/* Right — profile photo (hidden on mobile) */}
           <div className="hidden md:flex justify-center items-center">
-            {/* Replace the div below with the Image once avatar.jpg is in /public:
-                <Image src="/avatar.jpg" alt="Anirudh Thandu" width={320} height={320}
-                  className="rounded-full object-cover w-[320px] h-[320px]" /> */}
-            <div
-              className="rounded-full bg-[#0F6E56] flex items-center justify-center text-white font-fraunces font-light select-none"
-              style={{ width: 220, height: 220, fontSize: 48 }}
-            >
-              AT
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/avatar.jpg"
+              alt="Anirudh Thandu"
+              style={{
+                width: 280,
+                height: 360,
+                borderRadius: 20,
+                objectFit: "cover",
+                objectPosition: "top center",
+              }}
+            />
           </div>
         </div>
       </div>
