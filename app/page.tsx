@@ -587,6 +587,22 @@ function Builds() {
             comingSoon
           />
         </div>
+
+        <div className="mt-6 bg-[#E1F5EE] border border-[#0F6E56]/20 rounded-2xl px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" style={{ borderWidth: "0.5px" }}>
+          <div>
+            <h3 className="font-fraunces font-light text-[22px] text-[#0F0F0F] mb-1">
+              And yes, this portfolio too.
+            </h3>
+            <p className="text-[13px] font-dm-sans font-light text-[#555555] leading-relaxed">
+              Designed and built with Claude through natural language prompting. No prior Next.js experience. Deployed on Vercel.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2 sm:shrink-0">
+            {["Claude", "Next.js", "Vercel"].map((t) => (
+              <TechPill key={t}>{t}</TechPill>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
