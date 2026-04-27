@@ -100,7 +100,7 @@ function Hero() {
           </div>
 
           {/* Right — profile photo (hidden on mobile) */}
-          <div className="hidden md:flex justify-center items-center">
+          <div className="hidden md:flex justify-center items-center self-center pr-10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/avatar.jpg"
@@ -111,6 +111,7 @@ function Hero() {
                 borderRadius: 20,
                 objectFit: "cover",
                 objectPosition: "top center",
+                display: "block",
               }}
             />
           </div>
