@@ -6,14 +6,13 @@ import { useState } from "react";
 
 function Nav() {
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-[#FAFAF8] border-b border-black/10">
+    <header className="fixed top-0 inset-x-0 z-50 bg-[#0F0F0F]">
       <div className="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3">
-          {/* Swap this div for <Image> once avatar.jpg is in /public */}
           <div className="w-8 h-8 rounded-full bg-[#0F6E56] text-white flex items-center justify-center text-[11px] font-dm-sans font-light shrink-0 select-none">
             AT
           </div>
-          <span className="font-fraunces text-[20px] font-light tracking-tight text-[#0F0F0F]">
+          <span className="font-fraunces text-[20px] font-light tracking-tight text-white">
             Anirudh Thandu
           </span>
         </a>
@@ -23,7 +22,7 @@ function Nav() {
             <a
               key={label}
               href={`#${label.toLowerCase()}`}
-              className="text-[15px] font-dm-sans font-light text-[#555555] hover:text-[#0F0F0F] transition-colors"
+              className="text-[15px] font-dm-sans font-light text-[#CCCCCC] hover:text-white transition-colors"
             >
               {label}
             </a>
@@ -32,7 +31,7 @@ function Nav() {
 
         <a
           href="mailto:anirudh.gt9@gmail.com"
-          className="inline-flex items-center gap-1 text-sm font-dm-sans font-light px-4 py-2 rounded-full border border-[#0F0F0F] text-[#0F0F0F] hover:bg-[#0F0F0F] hover:text-white transition-colors"
+          className="inline-flex items-center gap-1 text-sm font-dm-sans font-light px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-[#0F0F0F] transition-colors"
         >
           Let&rsquo;s talk →
         </a>
