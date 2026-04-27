@@ -76,7 +76,7 @@ function Hero() {
             </h1>
 
             <p className="text-[17px] font-dm-sans font-light text-[#555555] max-w-xl leading-relaxed mb-10">
-              I help SaaS companies grow through partnerships — sourcing and closing
+              I help SaaS companies grow through partnerships: sourcing and closing
               strategic alliances, building ecosystems from the ground up, and
               unlocking new markets across Asia. Outside of work, I tinker with AI
               and occasionally end up with something worth sharing.
@@ -332,17 +332,17 @@ function Work() {
               <ul>
                 <CalloutItem>
                   <strong className="font-light text-[#0F0F0F]">
-                    128% growth in app attach rate
+                    128% growth in app attach rate:
                   </strong>{" "}
-                  — organisations using 3rd party apps with Xero grew from 14K to
+                  organisations using 3rd party apps with Xero grew from 14K to
                   32K, directly reducing churn
                 </CalloutItem>
                 <CalloutItem>
                   <strong className="font-light text-[#0F0F0F]">
                     13 strategic technology partners signed
                   </strong>{" "}
-                  across tax, payroll, eCommerce, and financial workflow —
-                  including the first MAS-owned carbon accounting platform on the
+                  across tax, payroll, eCommerce, and financial workflow, including
+                  the first MAS-owned carbon accounting platform on the
                   Xero App Store
                 </CalloutItem>
                 <CalloutItem>
@@ -352,22 +352,23 @@ function Work() {
                   </strong>{" "}
                   for bank statement extraction and secured free or discounted
                   payroll solutions for 9K+ organisations affected by a product
-                  sunset — protecting retention across Asia
+                  sunset, protecting retention across Asia
                 </CalloutItem>
               </ul>
 
               <SubHead>Channel Partnerships</SubHead>
               <ul>
                 <CalloutItem>
-                  Built Xero Asia&rsquo;s channel partnerships function from scratch —{" "}
+                  Built Xero Asia&rsquo;s channel partnerships function from scratch,
+                  closing{" "}
                   <strong className="font-light text-[#0F0F0F]">
-                    9 referral partnerships closed with 1M+ combined customer base
+                    9 referral partnerships with a combined customer base of 1M+
                   </strong>
                   , LTV/CAC above 4
                 </CalloutItem>
                 <CalloutItem>
                   Structured a creative partnership in Malaysia to unlock a
-                  government grant Xero couldn&rsquo;t access directly — drove{" "}
+                  government grant Xero couldn&rsquo;t access directly, driving an{" "}
                   <strong className="font-light text-[#0F0F0F]">
                     80% increase in new customer acquisition
                   </strong>
@@ -380,9 +381,9 @@ function Work() {
                   Grew Xero Asia Roadshow partner revenue from{" "}
                   <strong className="font-light text-[#0F0F0F]">
                     S$13.5K (2022) to USD $33.5K (2025)
-                  </strong>{" "}
-                  — 100% exhibitor CSAT and 4,000+ leads generated for ecosystem
-                  partners across three years
+                  </strong>
+                  , with 100% exhibitor CSAT and 4,000+ leads generated for
+                  ecosystem partners across three years
                 </CalloutItem>
               </ul>
             </div>
@@ -414,9 +415,9 @@ function Work() {
             <ul>
               <CalloutItem>
                 <strong className="font-light text-[#0F0F0F]">
-                  Built Sapaad&rsquo;s Singapore business from the ground up
+                  Built Sapaad&rsquo;s Singapore business from the ground up:
                 </strong>{" "}
-                — relocated to establish the APAC regional HQ, hired and managed a
+                relocated to establish the APAC regional HQ, hired and managed a
                 5-person cross-functional team, and led full GTM strategy across
                 Southeast Asia
               </CalloutItem>
@@ -567,7 +568,7 @@ function Builds() {
           <BuildCard
             icon={<IconTV />}
             title="Tilfaz"
-            description="A social TV tracking app — Letterboxd for television. Built with zero prior coding experience using Claude. Features TMDB search, genre swimlanes, a follow system, activity feeds, and ratings."
+            description="A social TV tracking app: Letterboxd for television. Built with zero prior coding experience using Claude. Features TMDB search, genre swimlanes, a follow system, activity feeds, and ratings."
             tech={["Next.js", "Supabase", "TMDB API", "Vercel"]}
             link="https://tilfaz.vercel.app"
             linkLabel="Visit Tilfaz ↗"
@@ -581,7 +582,7 @@ function Builds() {
           <BuildCard
             icon={<IconFlask />}
             title="Google × IMDA Challenge"
-            description="Building an AI workflow for a real partnerships problem — selected as one of 500 participants in Singapore's Skills Ignition AI Challenge."
+            description="Building an AI workflow for a real partnerships problem; selected as one of 500 participants in Singapore's Skills Ignition AI Challenge."
             tech={["Google Gemini", "In progress"]}
             comingSoon
           />
