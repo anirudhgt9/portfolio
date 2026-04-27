@@ -296,13 +296,8 @@ function Work() {
           {/* Xero */}
           <WorkCard>
             <TagPill>Ecosystem · Channel · GTM</TagPill>
-            <div className="flex items-center gap-3 mb-1">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/xero.png" alt="Xero" style={{ height: 24, width: "auto", objectFit: "contain" }} />
-              <h3 className="font-fraunces font-light text-[28px] text-[#0F0F0F]">
-                Xero
-              </h3>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/xero.png" alt="Xero" style={{ height: 32, width: "auto", objectFit: "contain" }} className="mb-1" />
             <p className="text-[12px] font-dm-sans font-light text-[#999999] mb-6">
               Singapore · May 2022 – Feb 2026
             </p>
@@ -408,13 +403,8 @@ function Work() {
           {/* Sapaad */}
           <WorkCard>
             <TagPill>GTM · BD</TagPill>
-            <div className="flex items-center gap-3 mb-1">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/sapaad.png" alt="Sapaad" style={{ height: 44, width: 44, objectFit: "contain" }} />
-              <h3 className="font-fraunces font-light text-[28px] text-[#0F0F0F]">
-                Sapaad
-              </h3>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/sapaad.png" alt="Sapaad" style={{ height: 56, width: "auto", objectFit: "contain" }} className="mb-1" />
             <p className="text-[12px] font-dm-sans font-light text-[#999999] mb-6">
               Singapore &amp; Dubai · 2016 – 2022
             </p>
