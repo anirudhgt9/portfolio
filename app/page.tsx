@@ -53,10 +53,12 @@ function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 items-center">
           {/* Left — text */}
           <div>
-            <div className="inline-flex items-center gap-2 border border-black/10 rounded-full px-4 py-1.5 mb-8 bg-white">
-              <span className="w-2 h-2 rounded-full bg-[#0F6E56] shrink-0" />
-              <span className="text-sm font-dm-sans font-light text-[#555555]">
-                Singapore · Dubai
+            <div className="flex items-center gap-2 mb-8">
+              <span className="inline-flex items-center gap-1.5 border border-black/10 rounded-full px-4 py-1.5 bg-white text-sm font-dm-sans font-light text-[#555555]">
+                🇸🇬 Singapore
+              </span>
+              <span className="inline-flex items-center gap-1.5 border border-black/10 rounded-full px-4 py-1.5 bg-white text-sm font-dm-sans font-light text-[#555555]">
+                🇦🇪 Dubai
               </span>
             </div>
 
@@ -95,6 +97,7 @@ function Hero() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-black/20 text-[#0F0F0F] text-sm font-dm-sans font-light hover:border-black/40 transition-colors"
               >
+                <IconLinkedIn />
                 LinkedIn ↗
               </a>
             </div>
@@ -293,6 +296,8 @@ function Work() {
           {/* Xero */}
           <WorkCard>
             <TagPill>Ecosystem · Channel · GTM</TagPill>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/xero.png" alt="Xero" style={{ height: 80, width: "auto", objectFit: "contain" }} className="mb-3" />
             <h3 className="font-fraunces font-light text-[28px] text-[#0F0F0F] mb-1">
               Xero
             </h3>
@@ -401,6 +406,8 @@ function Work() {
           {/* Sapaad */}
           <WorkCard>
             <TagPill>GTM · BD</TagPill>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/sapaad.png" alt="Sapaad" style={{ height: 80, width: "auto", objectFit: "contain" }} className="mb-3" />
             <h3 className="font-fraunces font-light text-[28px] text-[#0F0F0F] mb-1">
               Sapaad
             </h3>
@@ -480,6 +487,14 @@ function IconGear() {
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="3" />
       <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+    </svg>
+  );
+}
+
+function IconLinkedIn() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2" aria-hidden="true">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
     </svg>
   );
 }
@@ -880,9 +895,8 @@ function Certifications() {
 
 function Footer() {
   const links = [
-    { label: "LinkedIn", href: "https://linkedin.com/in/anirudh-thandu/" },
-    { label: "GitHub", href: "https://github.com/anirudhgt9" },
-    { label: "Email", href: "mailto:anirudh.gt9@gmail.com" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/anirudh-thandu/", icon: <IconLinkedIn /> },
+    { label: "Email", href: "mailto:anirudh.gt9@gmail.com", icon: null },
   ];
 
   return (
@@ -905,8 +919,9 @@ function Footer() {
                 href={l.href}
                 target={l.href.startsWith("mailto") ? undefined : "_blank"}
                 rel="noopener noreferrer"
-                className="text-sm font-dm-sans font-light text-[#999999] hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-dm-sans font-light text-[#999999] hover:text-white transition-colors"
               >
+                {l.icon}
                 {l.label} ↗
               </a>
             ))}
