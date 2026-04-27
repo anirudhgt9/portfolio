@@ -124,72 +124,6 @@ function Hero() {
   );
 }
 
-// ─── Impact Strip ────────────────────────────────────────────────────────────
-
-const impactMetrics = [
-  {
-    number: "128%",
-    label: "App attach growth",
-    tooltip:
-      "Organisations using 3rd party apps with Xero grew from 14K to 32K — directly reducing churn across Asia",
-  },
-  {
-    number: "15",
-    label: "App partners signed",
-    tooltip:
-      "Signed 15 strategic app partners to the Xero App Store across two roles, addressing critical product gaps in Asia",
-  },
-  {
-    number: "1M+",
-    label: "Channel partner reach",
-    tooltip:
-      "Combined customer base across 9 channel partnerships built from scratch in Asia — LTV/CAC above 4",
-  },
-  {
-    number: "$80K+",
-    label: "Roadshow revenue",
-    tooltip:
-      "Partner roadshow revenue grew from S$13.5K in 2022 to USD $33.5K in 2025 across Asia",
-  },
-];
-
-function ImpactStrip() {
-  return (
-    <section className="px-6 md:px-12 pb-10 md:pb-16">
-      <div className="max-w-6xl mx-auto">
-        <div className="bg-white border border-black/10 rounded-2xl px-8 py-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 divide-y-2 lg:divide-y-0 lg:divide-x divide-black/10">
-            {impactMetrics.map((m, i) => (
-              <div
-                key={i}
-                className="flex flex-col items-center text-center px-6 py-6 lg:py-0 first:pt-0 last:pb-0 lg:first:pt-0 lg:last:pb-0"
-              >
-                <span className="font-fraunces font-light text-[40px] leading-none text-[#0F6E56] mb-3">
-                  {m.number}
-                </span>
-                <div className="flex items-center justify-center gap-1.5">
-                  <span className="text-[13px] font-dm-sans font-light text-[#555555] leading-snug">
-                    {m.label}
-                  </span>
-                  <div className="relative group">
-                    <span className="inline-flex items-center justify-center w-[16px] h-[16px] rounded-full border border-black/20 text-[10px] font-dm-sans text-[#999999] cursor-default select-none shrink-0">
-                      i
-                    </span>
-                    <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 bg-[#0F0F0F] text-white text-[12px] font-dm-sans font-light leading-relaxed rounded-xl px-3 py-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-20 text-left">
-                      {m.tooltip}
-                      <span className="absolute top-full left-1/2 -translate-x-1/2 border-[5px] border-transparent border-t-[#0F0F0F]" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // ─── About ───────────────────────────────────────────────────────────────────
 
 function About() {
@@ -985,7 +919,6 @@ export default function Page() {
         <Hero />
         <About />
         <Work />
-        <ImpactStrip />
         <Builds />
         <Testimonials />
         <Certifications />
