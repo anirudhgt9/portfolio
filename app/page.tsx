@@ -798,7 +798,6 @@ const certs: CertEntry[] = [
     name: "B.Tech, Materials Engineering",
     issuer: "National Institute of Technology, Warangal · India",
     year: "2016",
-    link: "https://nitw.ac.in",
     logo: {
       type: "img",
       src: "/national_institute_of_technology_warangal_logo.jpeg",
