@@ -4,11 +4,15 @@ function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-[#FAFAF8] border-b border-black/10">
       <div className="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-        <a
-          href="#"
-          className="font-fraunces text-[18px] font-light tracking-tight text-[#0F0F0F]"
-        >
-          Anirudh Thandu
+        {/* Logo + avatar */}
+        <a href="#" className="flex items-center gap-3">
+          {/* Avatar — swap src to /avatar.jpg once uploaded */}
+          <div className="w-8 h-8 rounded-full bg-[#0F6E56] text-white flex items-center justify-center text-[11px] font-dm-sans font-light shrink-0 select-none">
+            AT
+          </div>
+          <span className="font-fraunces text-[20px] font-light tracking-tight text-[#0F0F0F]">
+            Anirudh Thandu
+          </span>
         </a>
 
         <nav className="hidden sm:flex items-center gap-8">
@@ -16,7 +20,7 @@ function Nav() {
             <a
               key={label}
               href={`#${label.toLowerCase()}`}
-              className="text-sm font-dm-sans font-light text-[#555555] hover:text-[#0F0F0F] transition-colors"
+              className="text-[15px] font-dm-sans font-light text-[#555555] hover:text-[#0F0F0F] transition-colors"
             >
               {label}
             </a>
@@ -43,7 +47,7 @@ function Hero() {
         <div className="inline-flex items-center gap-2 border border-black/10 rounded-full px-4 py-1.5 mb-8 bg-white">
           <span className="w-2 h-2 rounded-full bg-[#0F6E56] shrink-0" />
           <span className="text-sm font-dm-sans font-light text-[#555555]">
-            Singapore · Open to Dubai
+            Singapore · Dubai
           </span>
         </div>
 
@@ -60,9 +64,10 @@ function Hero() {
         </h1>
 
         <p className="text-[17px] font-dm-sans font-light text-[#555555] max-w-xl leading-relaxed mb-10">
-          I help SaaS companies grow through partners — building programs,
-          closing alliances, and unlocking new markets across Asia. I also build
-          AI tools that make me better at it.
+          I help SaaS companies grow through partners — sourcing and closing
+          strategic alliances, building ecosystems from the ground up, and
+          unlocking new markets across Asia. Outside of work, I build things
+          with AI just because I can.
         </p>
 
         <div className="flex flex-wrap gap-4">
@@ -86,12 +91,47 @@ function Hero() {
   );
 }
 
+// ─── Impact Strip ────────────────────────────────────────────────────────────
+
+const impactMetrics = [
+  { number: "128%", label: "Growth in organisations extending Xero with 3rd party apps (14K → 32K)" },
+  { number: "15", label: "Strategic app partners signed across Xero Asia" },
+  { number: "1M+", label: "Combined customer base reached through channel partnerships" },
+  { number: "$80K+", label: "Partner roadshow revenue generated across Asia (2022–2025)" },
+];
+
+function ImpactStrip() {
+  return (
+    <section className="px-6 md:px-12 pb-20">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white border border-black/10 rounded-2xl px-8 py-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 divide-y-2 lg:divide-y-0 lg:divide-x divide-black/10">
+            {impactMetrics.map((m, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center text-center px-6 py-6 lg:py-0 first:pt-0 last:pb-0 lg:first:pt-0 lg:last:pb-0"
+              >
+                <span className="font-fraunces font-light text-[40px] leading-none text-[#0F6E56] mb-3">
+                  {m.number}
+                </span>
+                <span className="text-[13px] font-dm-sans font-light text-[#555555] leading-snug max-w-[160px]">
+                  {m.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── About ───────────────────────────────────────────────────────────────────
 
 function About() {
   const stats = [
     { value: "10", label: "Years in SaaS Partnerships & GTM" },
-    { value: "APAC", label: "Markets — SG, MY, ID, PH, AU, NZ, UAE" },
+    { value: "APAC & GCC", label: "Markets" },
     { value: "3×", label: "AI products shipped since 2025" },
   ];
 
@@ -110,17 +150,21 @@ function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6 text-[16px] font-dm-sans font-light text-[#555555] leading-[1.75]">
             <p>
-              Nearly a decade growing partner ecosystems across APAC — from
-              signing strategic app integrations at Sapaad to scaling Xero&rsquo;s
-              App Store commercial model across Asia. I thrive in the messy
-              middle: navigating fragmented markets, negotiating commercial
-              structures, and getting cross-functional teams aligned.
+              Nearly a decade building partner ecosystems across APAC — starting
+              with taking Sapaad from zero to a fully operational Singapore
+              business with a cross-functional team, to scaling Xero&rsquo;s App
+              Store across Asia through product integrations, channel
+              partnerships, and commercial strategy.
             </p>
             <p>
-              More recently, I&rsquo;ve leaned into building — using AI to create
-              tools that make partnerships work sharper and faster. Tilfaz, an
-              automated job search pipeline, this portfolio — all built with
-              Claude, with no prior coding background.
+              I specialise in navigating Asia&rsquo;s fragmented markets, negotiating
+              complex commercial agreements, and bridging technical, legal, and
+              business teams. I turn market gaps into partnership opportunities.
+            </p>
+            <p>
+              When I&rsquo;m not doing that, I build things. Tilfaz (a social TV
+              tracking app), an automated job search pipeline, this portfolio —
+              all built using Claude with no prior coding experience.
             </p>
           </div>
 
@@ -148,10 +192,10 @@ function About() {
 
 // ─── Work helpers ────────────────────────────────────────────────────────────
 
-function BulletItem({ children }: { children: React.ReactNode }) {
+function CalloutItem({ children }: { children: React.ReactNode }) {
   return (
-    <li className="flex gap-3 text-[14px] font-dm-sans font-light text-[#555555] leading-[1.65]">
-      <span className="text-[#0F6E56] shrink-0 mt-[1px]">→</span>
+    <li className="flex gap-3 text-[15px] font-dm-sans font-light text-[#555555] leading-[1.7] py-3 border-b border-black/[0.06] last:border-0">
+      <span className="text-[#0F6E56] shrink-0 mt-[2px] text-[13px]">→</span>
       <span>{children}</span>
     </li>
   );
@@ -225,116 +269,65 @@ function Work() {
               Xero
             </h3>
             <p className="text-[12px] font-dm-sans font-light text-[#999999] mb-6">
-              Singapore · 3 years
+              Singapore · May 2022 – Feb 2026
             </p>
 
             <RoleLabel
               role="Partnerships Manager – Ecosystem & Strategic Partnerships"
               meta="May 2022 – May 2023"
             />
-            <ul className="space-y-2">
-              <BulletItem>
-                Spearheaded migration of 70 Asia-based ecosystem apps to Xero&rsquo;s
-                new App Store commercial model, implementing 15% revenue share
-                agreements — achieved 75% migration rate
-              </BulletItem>
-              <BulletItem>
-                Signed 2 new strategic app partners (PayDay, Homebozz) addressing
-                critical product gaps in HR/Payroll and Tenant Management
-              </BulletItem>
-              <BulletItem>
-                Collaborated with GTM teams to identify product-market fit gaps
-                across Asia, prioritising top 3rd-party solutions to drive
-                stickiness and growth
-              </BulletItem>
-              <BulletItem>
-                Developed industry-specific playbooks with global marketing teams
-                to empower Accounting & Bookkeeping partners in advisory-led growth
-              </BulletItem>
-              <BulletItem>
-                Generated S$13,500 in exhibitor revenue at Xero Roadshow 2022 —
-                oversold all exhibitor and pitch stage slots (17 partners onsite)
-              </BulletItem>
+            <ul>
+              <CalloutItem>
+                <strong className="font-light text-[#0F0F0F]">75% app migration rate</strong> — commercialised Xero&rsquo;s Asia ecosystem from zero, moving 70 apps onto a new revenue-share model
+              </CalloutItem>
+              <CalloutItem>
+                <strong className="font-light text-[#0F0F0F]">2 strategic app partners signed</strong> to plug critical product gaps in HR/Payroll and Tenant Management
+              </CalloutItem>
+              <CalloutItem>
+                <strong className="font-light text-[#0F0F0F]">S$13,500 in partner revenue</strong> generated at Xero Roadshow 2022 — oversold every exhibitor and pitch slot
+              </CalloutItem>
             </ul>
 
-            <div className="mt-6 pt-5 border-t border-black/10">
+            <div className="mt-4 pt-5 border-t border-black/10">
               <RoleLabel
                 role="Partnerships Manager – Asia"
                 meta="May 2023 – Feb 2026"
               />
 
               <SubHead>Product Partnerships</SubHead>
-              <ul className="space-y-2">
-                <BulletItem>
-                  Signed 13 strategic app partners to the Xero App Store addressing
-                  critical gaps in tax, payroll, eCommerce, and financial workflow
-                  — including first Asia-based Web3 crypto accounting platform and
-                  first local carbon accounting platform (owned by MAS)
-                </BulletItem>
-                <BulletItem>
-                  Drove 128% increase in app attach rate from 14K to 32K
-                  organisations, directly improving retention and reducing churn
-                </BulletItem>
-                <BulletItem>
-                  Negotiated 70% pricing reduction with partners for bank statement
-                  extraction in markets without direct bank feeds — enabling sales
-                  differentiation in secondary/tertiary Asia markets
-                </BulletItem>
-                <BulletItem>
-                  Mitigated churn risk from Global Pay-run feature sunset affecting
-                  9K+ organisations by negotiating free/discounted solutions from
-                  payroll partners; transition webinar drove 12% conversion increase
-                </BulletItem>
-                <BulletItem>
-                  Engaged Legal and DevRel teams to green-light Payment Service
-                  Provider onboarding in Philippines and Indonesia, and Lending
-                  partnerships in Malaysia
-                </BulletItem>
+              <ul>
+                <CalloutItem>
+                  <strong className="font-light text-[#0F0F0F]">128% growth in app attach rate</strong> — organisations using 3rd party apps with Xero grew from 14K to 32K, directly reducing churn
+                </CalloutItem>
+                <CalloutItem>
+                  <strong className="font-light text-[#0F0F0F]">13 strategic app partners signed</strong> across tax, payroll, eCommerce, and financial workflow — including the first MAS-owned carbon accounting platform on the Xero App Store
+                </CalloutItem>
+                <CalloutItem>
+                  Negotiated a <strong className="font-light text-[#0F0F0F]">70% pricing reduction</strong> for bank statement extraction and secured free or discounted payroll solutions for 9K+ organisations affected by a product sunset — protecting retention across Asia
+                </CalloutItem>
               </ul>
 
               <SubHead>Channel Partnerships</SubHead>
-              <ul className="space-y-2">
-                <BulletItem>
-                  Built channel partnerships function in Asia from scratch as a
-                  scalable acquisition channel — LTV/CAC ratios above 4
-                </BulletItem>
-                <BulletItem>
-                  Sourced and closed 9 strategic referral partnerships with 1M+
-                  combined customer reach (Employment Hero, MuRho, Kakitangan,
-                  Justlogin, PaidChain, Doers Circle, Kumo, Block71, RealEstateDoc)
-                </BulletItem>
-                <BulletItem>
-                  Structured creative partnership in Malaysia to access MDEC Madani
-                  government grant where Xero had no local entity — drove 80%
-                  increase in new customer acquisition
-                </BulletItem>
-                <BulletItem>
-                  Pipeline includes Singtel (50% SG telco market share) and KPay
-                  (75K merchants across HK and SG)
-                </BulletItem>
+              <ul>
+                <CalloutItem>
+                  Built Xero Asia&rsquo;s channel partnerships function from scratch — <strong className="font-light text-[#0F0F0F]">9 referral partnerships closed with 1M+ combined customer base</strong>, LTV/CAC above 4
+                </CalloutItem>
+                <CalloutItem>
+                  Structured a creative partnership in Malaysia to unlock a government grant Xero couldn&rsquo;t access directly — drove <strong className="font-light text-[#0F0F0F]">80% increase in new customer acquisition</strong>
+                </CalloutItem>
               </ul>
 
               <SubHead>Events</SubHead>
-              <ul className="space-y-2">
-                <BulletItem>
-                  Xero Asia Roadshow 2023: Signed all 20 exhibitor slots, generated
-                  S$18,987 in revenue
-                </BulletItem>
-                <BulletItem>
-                  Xero Asia Roadshow 2024: Increased exhibitor SKU pricing by 50%
-                  vs 2023 — 18 apps exhibited, USD $27,760 revenue (47% increase),
-                  1,707 leads generated, 100% exhibitor CSAT, NPS 71
-                </BulletItem>
-                <BulletItem>
-                  Xero Asia Roadshow 2025: 17 exhibitors, USD $33,500 revenue (20%
-                  increase vs 2024), 1,900+ leads captured
-                </BulletItem>
+              <ul>
+                <CalloutItem>
+                  Grew Xero Asia Roadshow partner revenue from <strong className="font-light text-[#0F0F0F]">S$13.5K (2022) to USD $33.5K (2025)</strong> — 100% exhibitor CSAT and 4,000+ leads generated for ecosystem partners across three years
+                </CalloutItem>
               </ul>
             </div>
 
             <MetricsRow
               items={[
-                "13 app partners signed",
+                "15 app partners signed",
                 "128% attach rate growth",
                 "1M+ channel reach",
                 "USD $80K+ roadshow revenue",
@@ -353,36 +346,27 @@ function Work() {
             </p>
 
             <RoleLabel
-              role="Sales Manager (APAC)"
-              meta="Singapore & Dubai · 2016 – 2022"
+              role="Sales Manager, APAC (Singapore) · Product Specialist (Dubai)"
+              meta="2016 – 2022"
             />
-            <ul className="space-y-2">
-              <BulletItem>
-                Led partner integrations from inception to go-live with foodpanda,
-                Grab, Google, and Stripe
-              </BulletItem>
-              <BulletItem>
-                Acquired 100+ restaurant brands across Singapore and ASEAN
-              </BulletItem>
-              <BulletItem>
-                Established Sapaad as IMDA Pre-Approved Vendor for SME Go
-                Digital&rsquo;s PSG Grant
-              </BulletItem>
-              <BulletItem>
-                Secured MOU with ITE Singapore — Sapaad became the official
-                software in their Hospitality curriculum
-              </BulletItem>
-              <BulletItem>
-                Closed 200+ new accounts in Dubai in under two years through
-                consultative selling
-              </BulletItem>
+            <ul>
+              <CalloutItem>
+                <strong className="font-light text-[#0F0F0F]">Built Sapaad&rsquo;s Singapore business from the ground up</strong> — relocated to establish the APAC regional HQ, hired and managed a 5-person cross-functional team, and led full GTM strategy across Southeast Asia
+              </CalloutItem>
+              <CalloutItem>
+                Landed integrations with <strong className="font-light text-[#0F0F0F]">foodpanda, Grab, Google, and Stripe</strong>; acquired 100+ restaurant brands across ASEAN; secured IMDA Pre-Approved Vendor status and an MOU with ITE Singapore making Sapaad the official software in their Hospitality curriculum
+              </CalloutItem>
+              <CalloutItem>
+                Closed <strong className="font-light text-[#0F0F0F]">200+ new restaurant accounts in Dubai in under two years</strong> before relocating to build the Singapore operation
+              </CalloutItem>
             </ul>
 
             <MetricsRow
               items={[
                 "100+ brands acquired",
-                "200+ Dubai accounts",
+                "5-person team led",
                 "4 platform integrations",
+                "IMDA Pre-Approved Vendor",
               ]}
             />
           </WorkCard>
@@ -713,6 +697,7 @@ export default function Page() {
       <Nav />
       <main>
         <Hero />
+        <ImpactStrip />
         <About />
         <Work />
         <Builds />
