@@ -16,10 +16,16 @@ function Nav() {
         </a>
 
         <nav className="hidden sm:flex items-center gap-8">
-          {(["Work", "Builds", "About"] as const).map((label) => (
+          {([
+            { label: "About", href: "#about" },
+            { label: "Work", href: "#work" },
+            { label: "Builds", href: "#builds" },
+            { label: "Testimonials", href: "#testimonials" },
+            { label: "Credentials", href: "#certifications" },
+          ] as const).map(({ label, href }) => (
             <a
               key={label}
-              href={`#${label.toLowerCase()}`}
+              href={href}
               className="text-[15px] font-dm-sans font-light text-[#CCCCCC] hover:text-white transition-colors"
             >
               {label}
@@ -196,7 +202,7 @@ function About() {
   return (
     <section id="about" className="py-10 md:py-16 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
-        <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-4">
+        <p className="text-[13px] font-dm-sans font-light tracking-[0.18em] uppercase text-[#0F6E56] mb-4">
           About
         </p>
 
@@ -290,10 +296,10 @@ function MetricsRow({ items }: { items: { value: string; label: string }[] }) {
     <div className="mt-6 pt-5 border-t border-black/10 grid grid-cols-2 sm:grid-cols-4 gap-4">
       {items.map((m) => (
         <div key={m.value + m.label} className="flex flex-col">
-          <span className="font-fraunces font-light text-[28px] leading-none text-[#0F0F0F] mb-1">
+          <span className="font-fraunces font-light text-[32px] leading-none text-[#0F0F0F] mb-1">
             {m.value}
           </span>
-          <span className="text-[11px] font-dm-sans font-light text-[#999999] leading-snug">
+          <span className="text-[12px] font-dm-sans font-light text-[#999999] leading-snug">
             {m.label}
           </span>
         </div>
@@ -325,7 +331,7 @@ function Work() {
   return (
     <section id="work" className="py-10 md:py-16 px-6 md:px-12 bg-white">
       <div className="max-w-6xl mx-auto">
-        <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-4">
+        <p className="text-[13px] font-dm-sans font-light tracking-[0.18em] uppercase text-[#0F6E56] mb-4">
           Work
         </p>
         <h2
@@ -443,7 +449,7 @@ function Work() {
               items={[
                 { value: "15", label: "App partners signed" },
                 { value: "128%", label: "Attach rate growth" },
-                { value: "1M+", label: "Channel reach" },
+                { value: "1M+", label: "Channel partner reach" },
                 { value: "$80K+", label: "Roadshow revenue" },
               ]}
             />
@@ -498,6 +504,7 @@ function Work() {
                 { value: "IMDA", label: "Pre-Approved Vendor" },
               ]}
             />
+
           </WorkCard>
         </div>
       </div>
@@ -603,7 +610,7 @@ function Builds() {
   return (
     <section id="builds" className="py-10 md:py-16 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
-        <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-4">
+        <p className="text-[13px] font-dm-sans font-light tracking-[0.18em] uppercase text-[#0F6E56] mb-4">
           Builds
         </p>
         <h2
@@ -694,7 +701,7 @@ function Testimonials() {
       className="py-10 md:py-16 px-6 md:px-12 bg-[#0F0F0F]"
     >
       <div className="max-w-6xl mx-auto">
-        <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-4">
+        <p className="text-[13px] font-dm-sans font-light tracking-[0.18em] uppercase text-[#0F6E56] mb-4">
           Testimonials
         </p>
         <h2
@@ -856,7 +863,7 @@ function Certifications() {
   return (
     <section id="certifications" className="py-10 md:py-16 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
-        <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-4">
+        <p className="text-[13px] font-dm-sans font-light tracking-[0.18em] uppercase text-[#0F6E56] mb-4">
           Credentials
         </p>
         <h2
