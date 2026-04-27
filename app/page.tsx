@@ -216,52 +216,53 @@ function About() {
           </em>
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6 text-[16px] font-dm-sans font-light text-[#555555] leading-[1.75]">
-            <p>
-              I moved from Dubai to Singapore in 2018 to build Sapaad&rsquo;s APAC
-              business from the ground up. No playbook, no team, just a market
-              to crack. From there I joined Xero, scaling their partner
-              ecosystem across Asia through product integrations, channel
-              partnerships, and commercial strategy across 12 markets. Eight
-              years after landing in Singapore, I found myself between roles.
-            </p>
-            <p>So I started building.</p>
-            <p>
-              Tilfaz, a social TV tracking app I wanted to exist. An automated
-              job search pipeline. This portfolio. All built using Claude with
-              no prior coding experience. I went from knowing nothing about how
-              software gets made to shipping full-stack apps because I was
-              curious, and because I could.
-            </p>
-            <p>
-              That same instinct, spot a gap, figure it out, build the thing,
-              is what I&rsquo;ve brought to partnerships for a decade.
-            </p>
-            <p>
-              I specialise in navigating Asia&rsquo;s fragmented markets, negotiating
-              complex commercial agreements, and bridging technical, legal, and
-              business teams. I turn market gaps into partnership opportunities,
-              and apparently, occasionally into apps.
-            </p>
-            <p>
-              When I&rsquo;m not in spreadsheets or terminal windows, I&rsquo;m playing
-              padel, cooking something that probably needed more salt, or
-              watching too much TV. Tilfaz helps with that last one.
-            </p>
-          </div>
+        <div className="space-y-6 text-[16px] font-dm-sans font-light text-[#555555] leading-[1.75] mb-10">
+          <p>
+            I&rsquo;m a partnerships and GTM leader with close to a decade of
+            experience building ecosystems across Asia. The short version: I
+            moved from Dubai to Singapore in 2018 to build Sapaad&rsquo;s APAC
+            business from the ground up. No playbook, no team, just a market
+            to crack.
+          </p>
+          <p>
+            From there I joined Xero, scaling their partner ecosystem across
+            Asia through product integrations, channel partnerships, and
+            commercial strategy across 12 markets. Eight years after landing
+            in Singapore, I found myself between roles.
+          </p>
+          <p>So I started building.</p>
+          <p>
+            Tilfaz, a social TV tracking app I wanted to exist. An automated
+            job search pipeline. This portfolio. All built using Claude with
+            no prior coding experience. I went from knowing nothing about how
+            software gets made to shipping full-stack apps because I was
+            curious, and because I could.
+          </p>
+          <p>
+            That same instinct, spot a gap, figure it out, build the thing,
+            is what I&rsquo;ve brought to partnerships for a decade.
+          </p>
+          <p>
+            I specialise in navigating Asia&rsquo;s fragmented markets, negotiating
+            complex commercial agreements, and bridging technical, legal, and
+            business teams. I turn market gaps into partnership opportunities,
+            and apparently, occasionally into apps.
+          </p>
+          <p>
+            When I&rsquo;m not in spreadsheets or terminal windows, I&rsquo;m playing
+            padel, cooking something that probably needed more salt, or
+            watching too much TV. Tilfaz helps with that last one.
+          </p>
+        </div>
 
-          <div className="space-y-4">
+        <div className="bg-white border border-black/10 rounded-2xl px-8 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-black/10">
             {stats.map((s) => (
-              <div
-                key={s.value}
-                className="bg-white border border-black/10 rounded-2xl px-6 py-5 flex items-center gap-6"
-              >
-                <span className="font-fraunces font-light text-[32px] text-[#0F0F0F] shrink-0 w-20 text-right">
+              <div key={s.value} className="flex flex-col items-center text-center px-6 py-6 sm:py-0">
+                <span className="font-fraunces font-light text-[40px] leading-none text-[#0F6E56] mb-2">
                   {s.value}
                 </span>
-                <div className="w-px h-8 bg-black/10 shrink-0" />
-                <span className="text-sm font-dm-sans font-light text-[#555555] leading-snug">
+                <span className="text-[13px] font-dm-sans font-light text-[#555555] leading-snug">
                   {s.label}
                 </span>
               </div>
@@ -983,8 +984,8 @@ export default function Page() {
       <main>
         <Hero />
         <About />
-        <ImpactStrip />
         <Work />
+        <ImpactStrip />
         <Builds />
         <Testimonials />
         <Certifications />
