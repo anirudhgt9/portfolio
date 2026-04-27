@@ -583,16 +583,16 @@ function Testimonials() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <TestimonialCard
-            quote="Quote from LinkedIn recommendation 1 — to be replaced with actual text."
-            name="Senior Leader"
-            role="Senior Leader, Xero"
-            initials="SL"
+            quote="Ani's real strength is relationship building, with a clear focus on the long game. He brings strong ecosystem knowledge and a good instinct for identifying where products can address genuine product-market fit gaps, strengthen partner value propositions, and support sustainable growth. Ani adds value through his ability to connect dots across the ecosystem, surface meaningful opportunities, and engage partners in thoughtful, growth-oriented conversations."
+            name="Koren Wines"
+            role="Managing Director, Xero APAC"
+            initials="KW"
           />
           <TestimonialCard
-            quote="Quote from LinkedIn recommendation 2 — to be replaced with actual text."
-            name="LinkedIn Recommendation"
-            role="LinkedIn Recommendation"
-            initials="LR"
+            quote="Ani possesses a rare combination of high emotional intelligence and rigorous strategic analysis and execution. What stands out immediately is his personable nature; he doesn't just manage accounts, he builds genuine trust. Beyond his relationship-building skills, Ani is able to manage complex commercial deals from the very beginning of the lifecycle through to final execution. He doesn't shy away from ambiguity; instead, he structures it."
+            name="Michael Green"
+            role="GM Partnerships, UK & Emerging Markets, Xero"
+            initials="MG"
           />
         </div>
       </div>
