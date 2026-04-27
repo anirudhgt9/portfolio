@@ -61,27 +61,25 @@ function Hero() {
             </div>
 
             <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-6">
-              Partnerships &amp; GTM · 10 years APAC
+              Partnerships &amp; GTM · 10 Years · APAC &amp; GCC
             </p>
 
             <h1
               className="font-fraunces font-light leading-[1.08] text-[#0F0F0F] mb-8"
               style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
             >
-              Building ecosystems,
-              <br />
-              and the tools
+              Partnerships leader.
               <br />
               <em style={{ fontStyle: "italic", color: "#0F6E56" }}>
-                to scale them.
+                Accidental builder.
               </em>
             </h1>
 
             <p className="text-[17px] font-dm-sans font-light text-[#555555] max-w-xl leading-relaxed mb-10">
-              I help SaaS companies grow through partners — sourcing and closing
+              I help SaaS companies grow through partnerships — sourcing and closing
               strategic alliances, building ecosystems from the ground up, and
-              unlocking new markets across Asia. Outside of work, I build things
-              with AI just because I can.
+              unlocking new markets across Asia. Outside of work, I tinker with AI
+              and occasionally end up with something worth sharing.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -308,15 +306,17 @@ function Work() {
             />
             <ul>
               <CalloutItem>
+                Achieved a{" "}
                 <strong className="font-light text-[#0F0F0F]">
-                  75% app migration rate
+                  75% migration rate
                 </strong>{" "}
-                — commercialised Xero&rsquo;s Asia ecosystem from zero, moving 70
-                apps onto a new revenue-share model
+                commercialising Xero&rsquo;s Asia ecosystem from the legacy App
+                Marketplace to the new App Store, moving 70 apps onto a
+                revenue-share model for the first time
               </CalloutItem>
               <CalloutItem>
                 <strong className="font-light text-[#0F0F0F]">
-                  2 strategic app partners signed
+                  2 strategic technology partners signed
                 </strong>{" "}
                 to plug critical product gaps in HR/Payroll and Tenant Management
               </CalloutItem>
@@ -339,7 +339,7 @@ function Work() {
                 </CalloutItem>
                 <CalloutItem>
                   <strong className="font-light text-[#0F0F0F]">
-                    13 strategic app partners signed
+                    13 strategic technology partners signed
                   </strong>{" "}
                   across tax, payroll, eCommerce, and financial workflow —
                   including the first MAS-owned carbon accounting platform on the
@@ -389,7 +389,7 @@ function Work() {
 
             <MetricsRow
               items={[
-                { value: "15", label: "App partners signed" },
+                { value: "15", label: "Technology partners signed" },
                 { value: "128%", label: "Attach rate growth" },
                 { value: "1M+", label: "Channel partner reach" },
                 { value: "$80K+", label: "Roadshow revenue" },
@@ -425,7 +425,7 @@ function Work() {
                 <strong className="font-light text-[#0F0F0F]">
                   foodpanda, Grab, Google, and Stripe
                 </strong>
-                ; acquired 200+ restaurant brands across ASEAN; secured IMDA
+                ; acquired 100+ restaurant brands across ASEAN; secured IMDA
                 Pre-Approved Vendor status and an MOU with ITE Singapore making
                 Sapaad the official software in their Hospitality curriculum
               </CalloutItem>
@@ -440,7 +440,7 @@ function Work() {
 
             <MetricsRow
               items={[
-                { value: "200+", label: "Brands acquired" },
+                { value: "300+", label: "Brands acquired" },
                 { value: "5", label: "Person team led" },
                 { value: "5", label: "Platform integrations" },
                 { value: "IMDA", label: "Pre-Approved Vendor" },
