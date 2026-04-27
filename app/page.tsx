@@ -1,4 +1,6 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 
@@ -725,14 +727,20 @@ function Testimonials() {
 
 // ─── Certifications ──────────────────────────────────────────────────────────
 
-type LogoPlaceholder = { type: "initials"; text: string; bg: string; color: string };
-type LogoImg = { type: "img"; src: string; width: number; height: number };
+type LogoInitials = { type: "initials"; text: string; bg: string; color: string };
+type LogoImg = {
+  type: "img";
+  src: string;
+  fallbackText: string;
+  fallbackBg: string;
+  fallbackColor: string;
+};
 type CertEntry = {
   name: string;
   issuer: string;
   year: string;
   link?: string;
-  logo?: LogoPlaceholder | LogoImg;
+  logo?: LogoInitials | LogoImg;
 };
 
 const certs: CertEntry[] = [
@@ -744,8 +752,9 @@ const certs: CertEntry[] = [
     logo: {
       type: "img",
       src: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-      width: 272,
-      height: 92,
+      fallbackText: "G",
+      fallbackBg: "#4285F4",
+      fallbackColor: "#ffffff",
     },
   },
   {
@@ -753,51 +762,107 @@ const certs: CertEntry[] = [
     issuer: "The Maker Group",
     year: "2025",
     link: "https://certificates.themakergroup.com/eccb5f04-11d6-468e-afd1-f66d2dbd61a6",
-    logo: { type: "initials", text: "TMG", bg: "#1a1a1a", color: "#c9a84c" },
+    logo: {
+      type: "img",
+      src: "/the_maker_group_consulting_logo.jpeg",
+      fallbackText: "TMG",
+      fallbackBg: "#1a1a1a",
+      fallbackColor: "#c9a84c",
+    },
   },
   {
     name: "High-Impact Communication Skills; Managing Difficult Conversations",
     issuer: "Pinnacle Performance Company",
     year: "2025",
-    logo: { type: "initials", text: "PP", bg: "#c85a1a", color: "#ffffff" },
+    logo: {
+      type: "img",
+      src: "/pinnacle_performance_company_logo.jpeg",
+      fallbackText: "PP",
+      fallbackBg: "#c85a1a",
+      fallbackColor: "#ffffff",
+    },
   },
   {
     name: "Crucial Conversations for Mastering Dialogue",
     issuer: "Crucial Learning",
     year: "2025",
-    logo: { type: "initials", text: "CC", bg: "#c0392b", color: "#ffffff" },
+    logo: {
+      type: "img",
+      src: "/Crucial learning logo.png",
+      fallbackText: "CC",
+      fallbackBg: "#c0392b",
+      fallbackColor: "#ffffff",
+    },
   },
   {
     name: "B.Tech, Materials Engineering",
     issuer: "National Institute of Technology, Warangal · India",
     year: "2016",
     link: "https://nitw.ac.in",
+    logo: {
+      type: "img",
+      src: "/national_institute_of_technology_warangal_logo.jpeg",
+      fallbackText: "NIT",
+      fallbackBg: "#003580",
+      fallbackColor: "#ffffff",
+    },
   },
 ];
 
-function CertLogo({ logo }: { logo: CertEntry["logo"] }) {
-  if (!logo) {
-    return <div className="w-12 h-12 shrink-0" />;
+function CertLogoImg({
+  src,
+  fallbackText,
+  fallbackBg,
+  fallbackColor,
+}: {
+  src: string;
+  fallbackText: string;
+  fallbackBg: string;
+  fallbackColor: string;
+}) {
+  const [errored, setErrored] = useState(false);
+  if (errored) {
+    return (
+      <div
+        className="w-10 h-10 rounded-lg shrink-0 flex items-center justify-center text-[11px] font-dm-sans font-light select-none"
+        style={{ backgroundColor: fallbackBg, color: fallbackColor }}
+      >
+        {fallbackText}
+      </div>
+    );
   }
+  return (
+    /* eslint-disable-next-line @next/next/no-img-element */
+    <img
+      src={src}
+      alt=""
+      onError={() => setErrored(true)}
+      className="h-10 w-auto max-w-[80px] object-contain"
+    />
+  );
+}
+
+function CertLogo({ logo }: { logo: CertEntry["logo"] }) {
+  if (!logo) return <div className="w-10 h-10 shrink-0" />;
+
   if (logo.type === "initials") {
     return (
       <div
-        className="w-12 h-12 rounded-xl shrink-0 flex items-center justify-center text-[11px] font-dm-sans font-light tracking-wide select-none"
+        className="w-10 h-10 rounded-lg shrink-0 flex items-center justify-center text-[11px] font-dm-sans font-light select-none"
         style={{ backgroundColor: logo.bg, color: logo.color }}
       >
         {logo.text}
       </div>
     );
   }
+
   return (
-    <div className="w-14 h-12 shrink-0 flex items-center justify-center">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+    <div className="w-10 h-10 shrink-0 flex items-center justify-center">
+      <CertLogoImg
         src={logo.src}
-        alt=""
-        width={logo.width}
-        height={logo.height}
-        className="max-w-[52px] max-h-[28px] w-auto h-auto object-contain"
+        fallbackText={logo.fallbackText}
+        fallbackBg={logo.fallbackBg}
+        fallbackColor={logo.fallbackColor}
       />
     </div>
   );
