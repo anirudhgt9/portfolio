@@ -297,7 +297,7 @@ function Work() {
           <WorkCard>
             <TagPill>Ecosystem · Channel · GTM</TagPill>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/xero.png" alt="Xero" style={{ height: 32, width: "auto", objectFit: "contain" }} className="mb-1" />
+            <img src="/xero.png" alt="Xero" style={{ height: 28, width: "auto", objectFit: "contain" }} className="mb-4" />
             <p className="text-[12px] font-dm-sans font-light text-[#999999] mb-6">
               Singapore · May 2022 – Feb 2026
             </p>
@@ -404,7 +404,7 @@ function Work() {
           <WorkCard>
             <TagPill>GTM · BD</TagPill>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/sapaad.png" alt="Sapaad" style={{ height: 56, width: "auto", objectFit: "contain" }} className="mb-1" />
+            <img src="/sapaad.png" alt="Sapaad" style={{ height: 80, width: 80, objectFit: "contain" }} className="mb-4" />
             <p className="text-[12px] font-dm-sans font-light text-[#999999] mb-6">
               Singapore &amp; Dubai · 2016 – 2022
             </p>
