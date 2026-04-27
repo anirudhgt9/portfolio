@@ -45,7 +45,7 @@ function Hero() {
   return (
     <section className="pt-36 pb-10 md:pb-16 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 items-center">
           {/* Left — text */}
           <div>
             <div className="inline-flex items-center gap-2 border border-black/10 rounded-full px-4 py-1.5 mb-8 bg-white">
@@ -104,7 +104,7 @@ function Hero() {
                   className="rounded-full object-cover w-[320px] h-[320px]" /> */}
             <div
               className="rounded-full bg-[#0F6E56] flex items-center justify-center text-white font-fraunces font-light select-none"
-              style={{ width: 320, height: 320, fontSize: 64 }}
+              style={{ width: 220, height: 220, fontSize: 48 }}
             >
               AT
             </div>
