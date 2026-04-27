@@ -1,12 +1,13 @@
+import Image from "next/image";
+
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 
 function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-[#FAFAF8] border-b border-black/10">
       <div className="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-        {/* Logo + avatar */}
         <a href="#" className="flex items-center gap-3">
-          {/* Avatar — swap src to /avatar.jpg once uploaded */}
+          {/* Swap this div for <Image> once avatar.jpg is in /public */}
           <div className="w-8 h-8 rounded-full bg-[#0F6E56] text-white flex items-center justify-center text-[11px] font-dm-sans font-light shrink-0 select-none">
             AT
           </div>
@@ -42,49 +43,72 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="pt-40 pb-28 px-6 md:px-12">
+    <section className="pt-36 pb-10 md:pb-16 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
-        <div className="inline-flex items-center gap-2 border border-black/10 rounded-full px-4 py-1.5 mb-8 bg-white">
-          <span className="w-2 h-2 rounded-full bg-[#0F6E56] shrink-0" />
-          <span className="text-sm font-dm-sans font-light text-[#555555]">
-            Singapore · Dubai
-          </span>
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Left — text */}
+          <div>
+            <div className="inline-flex items-center gap-2 border border-black/10 rounded-full px-4 py-1.5 mb-8 bg-white">
+              <span className="w-2 h-2 rounded-full bg-[#0F6E56] shrink-0" />
+              <span className="text-sm font-dm-sans font-light text-[#555555]">
+                Singapore · Dubai
+              </span>
+            </div>
 
-        <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-6">
-          Partnerships &amp; GTM · 10 years APAC
-        </p>
+            <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-6">
+              Partnerships &amp; GTM · 10 years APAC
+            </p>
 
-        <h1 className="font-fraunces font-light leading-[1.08] text-[#0F0F0F] mb-8" style={{ fontSize: "clamp(38px, 6vw, 72px)" }}>
-          Building ecosystems,
-          <br />
-          and the tools
-          <br />
-          <em style={{ fontStyle: "italic", color: "#0F6E56" }}>to scale them.</em>
-        </h1>
+            <h1
+              className="font-fraunces font-light leading-[1.08] text-[#0F0F0F] mb-8"
+              style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
+            >
+              Building ecosystems,
+              <br />
+              and the tools
+              <br />
+              <em style={{ fontStyle: "italic", color: "#0F6E56" }}>
+                to scale them.
+              </em>
+            </h1>
 
-        <p className="text-[17px] font-dm-sans font-light text-[#555555] max-w-xl leading-relaxed mb-10">
-          I help SaaS companies grow through partners — sourcing and closing
-          strategic alliances, building ecosystems from the ground up, and
-          unlocking new markets across Asia. Outside of work, I build things
-          with AI just because I can.
-        </p>
+            <p className="text-[17px] font-dm-sans font-light text-[#555555] max-w-xl leading-relaxed mb-10">
+              I help SaaS companies grow through partners — sourcing and closing
+              strategic alliances, building ecosystems from the ground up, and
+              unlocking new markets across Asia. Outside of work, I build things
+              with AI just because I can.
+            </p>
 
-        <div className="flex flex-wrap gap-4">
-          <a
-            href="#work"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0F0F0F] text-white text-sm font-dm-sans font-light hover:bg-[#333] transition-colors"
-          >
-            View my work
-          </a>
-          <a
-            href="https://linkedin.com/in/anirudh-thandu/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-black/20 text-[#0F0F0F] text-sm font-dm-sans font-light hover:border-black/40 transition-colors"
-          >
-            LinkedIn ↗
-          </a>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#work"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0F0F0F] text-white text-sm font-dm-sans font-light hover:bg-[#333] transition-colors"
+              >
+                View my work
+              </a>
+              <a
+                href="https://linkedin.com/in/anirudh-thandu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-black/20 text-[#0F0F0F] text-sm font-dm-sans font-light hover:border-black/40 transition-colors"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
+
+          {/* Right — profile photo (hidden on mobile) */}
+          <div className="hidden md:flex justify-center items-center">
+            {/* Replace the div below with the Image once avatar.jpg is in /public:
+                <Image src="/avatar.jpg" alt="Anirudh Thandu" width={320} height={320}
+                  className="rounded-full object-cover w-[320px] h-[320px]" /> */}
+            <div
+              className="rounded-full bg-[#0F6E56] flex items-center justify-center text-white font-fraunces font-light select-none"
+              style={{ width: 320, height: 320, fontSize: 64 }}
+            >
+              AT
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -97,28 +121,32 @@ const impactMetrics = [
   {
     number: "128%",
     label: "App attach growth",
-    tooltip: "Organisations using 3rd party apps with Xero grew from 14K to 32K — directly reducing churn across Asia",
+    tooltip:
+      "Organisations using 3rd party apps with Xero grew from 14K to 32K — directly reducing churn across Asia",
   },
   {
     number: "15",
     label: "App partners signed",
-    tooltip: "Signed 15 strategic app partners to the Xero App Store across two roles, addressing critical product gaps in Asia",
+    tooltip:
+      "Signed 15 strategic app partners to the Xero App Store across two roles, addressing critical product gaps in Asia",
   },
   {
     number: "1M+",
     label: "Channel partner reach",
-    tooltip: "Combined customer base across 9 channel partnerships built from scratch in Asia — LTV/CAC above 4",
+    tooltip:
+      "Combined customer base across 9 channel partnerships built from scratch in Asia — LTV/CAC above 4",
   },
   {
     number: "$80K+",
     label: "Roadshow revenue",
-    tooltip: "Partner roadshow revenue grew from S$13.5K in 2022 to USD $33.5K in 2025 across Asia",
+    tooltip:
+      "Partner roadshow revenue grew from S$13.5K in 2022 to USD $33.5K in 2025 across Asia",
   },
 ];
 
 function ImpactStrip() {
   return (
-    <section className="px-6 md:px-12 pb-20">
+    <section className="px-6 md:px-12 pb-10 md:pb-16">
       <div className="max-w-6xl mx-auto">
         <div className="bg-white border border-black/10 rounded-2xl px-8 py-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 divide-y-2 lg:divide-y-0 lg:divide-x divide-black/10">
@@ -134,7 +162,6 @@ function ImpactStrip() {
                   <span className="text-[13px] font-dm-sans font-light text-[#555555] leading-snug">
                     {m.label}
                   </span>
-                  {/* CSS-only tooltip */}
                   <div className="relative group">
                     <span className="inline-flex items-center justify-center w-[16px] h-[16px] rounded-full border border-black/20 text-[10px] font-dm-sans text-[#999999] cursor-default select-none shrink-0">
                       i
@@ -164,15 +191,20 @@ function About() {
   ];
 
   return (
-    <section id="about" className="py-24 px-6 md:px-12">
+    <section id="about" className="py-10 md:py-16 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-4">
           About
         </p>
 
-        <h2 className="font-fraunces font-light leading-tight text-[#0F0F0F] mb-14" style={{ fontSize: "clamp(28px, 4vw, 48px)" }}>
+        <h2
+          className="font-fraunces font-light leading-tight text-[#0F0F0F] mb-8 md:mb-10"
+          style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+        >
           Strategic by nature.{" "}
-          <em style={{ fontStyle: "italic", color: "#0F6E56" }}>Builder by choice.</em>
+          <em style={{ fontStyle: "italic", color: "#0F6E56" }}>
+            Builder by choice.
+          </em>
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -240,8 +272,12 @@ function SubHead({ children }: { children: React.ReactNode }) {
 function RoleLabel({ role, meta }: { role: string; meta: string }) {
   return (
     <div className="mb-3">
-      <p className="text-[13px] font-dm-sans font-light text-[#0F0F0F]">{role}</p>
-      <p className="text-[12px] font-dm-sans font-light text-[#999999] mt-0.5">{meta}</p>
+      <p className="text-[13px] font-dm-sans font-light text-[#0F0F0F]">
+        {role}
+      </p>
+      <p className="text-[12px] font-dm-sans font-light text-[#999999] mt-0.5">
+        {meta}
+      </p>
     </div>
   );
 }
@@ -284,12 +320,15 @@ function WorkCard({ children }: { children: React.ReactNode }) {
 
 function Work() {
   return (
-    <section id="work" className="py-24 px-6 md:px-12 bg-white">
+    <section id="work" className="py-10 md:py-16 px-6 md:px-12 bg-white">
       <div className="max-w-6xl mx-auto">
         <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-4">
           Work
         </p>
-        <h2 className="font-fraunces font-light leading-tight text-[#0F0F0F] mb-14" style={{ fontSize: "clamp(28px, 4vw, 48px)" }}>
+        <h2
+          className="font-fraunces font-light leading-tight text-[#0F0F0F] mb-8 md:mb-10"
+          style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+        >
           What I&rsquo;ve built{" "}
           <em style={{ fontStyle: "italic", color: "#0F6E56" }}>for others.</em>
         </h2>
@@ -311,13 +350,24 @@ function Work() {
             />
             <ul>
               <CalloutItem>
-                <strong className="font-light text-[#0F0F0F]">75% app migration rate</strong> — commercialised Xero&rsquo;s Asia ecosystem from zero, moving 70 apps onto a new revenue-share model
+                <strong className="font-light text-[#0F0F0F]">
+                  75% app migration rate
+                </strong>{" "}
+                — commercialised Xero&rsquo;s Asia ecosystem from zero, moving 70
+                apps onto a new revenue-share model
               </CalloutItem>
               <CalloutItem>
-                <strong className="font-light text-[#0F0F0F]">2 strategic app partners signed</strong> to plug critical product gaps in HR/Payroll and Tenant Management
+                <strong className="font-light text-[#0F0F0F]">
+                  2 strategic app partners signed
+                </strong>{" "}
+                to plug critical product gaps in HR/Payroll and Tenant Management
               </CalloutItem>
               <CalloutItem>
-                <strong className="font-light text-[#0F0F0F]">S$13,500 in partner revenue</strong> generated at Xero Roadshow 2022 — oversold every exhibitor and pitch slot
+                <strong className="font-light text-[#0F0F0F]">
+                  S$13,500 in partner revenue
+                </strong>{" "}
+                generated at Xero Roadshow 2022 — oversold every exhibitor and
+                pitch slot
               </CalloutItem>
             </ul>
 
@@ -330,30 +380,58 @@ function Work() {
               <SubHead>Product Partnerships</SubHead>
               <ul>
                 <CalloutItem>
-                  <strong className="font-light text-[#0F0F0F]">128% growth in app attach rate</strong> — organisations using 3rd party apps with Xero grew from 14K to 32K, directly reducing churn
+                  <strong className="font-light text-[#0F0F0F]">
+                    128% growth in app attach rate
+                  </strong>{" "}
+                  — organisations using 3rd party apps with Xero grew from 14K to
+                  32K, directly reducing churn
                 </CalloutItem>
                 <CalloutItem>
-                  <strong className="font-light text-[#0F0F0F]">13 strategic app partners signed</strong> across tax, payroll, eCommerce, and financial workflow — including the first MAS-owned carbon accounting platform on the Xero App Store
+                  <strong className="font-light text-[#0F0F0F]">
+                    13 strategic app partners signed
+                  </strong>{" "}
+                  across tax, payroll, eCommerce, and financial workflow —
+                  including the first MAS-owned carbon accounting platform on the
+                  Xero App Store
                 </CalloutItem>
                 <CalloutItem>
-                  Negotiated a <strong className="font-light text-[#0F0F0F]">70% pricing reduction</strong> for bank statement extraction and secured free or discounted payroll solutions for 9K+ organisations affected by a product sunset — protecting retention across Asia
+                  Negotiated a{" "}
+                  <strong className="font-light text-[#0F0F0F]">
+                    70% pricing reduction
+                  </strong>{" "}
+                  for bank statement extraction and secured free or discounted
+                  payroll solutions for 9K+ organisations affected by a product
+                  sunset — protecting retention across Asia
                 </CalloutItem>
               </ul>
 
               <SubHead>Channel Partnerships</SubHead>
               <ul>
                 <CalloutItem>
-                  Built Xero Asia&rsquo;s channel partnerships function from scratch — <strong className="font-light text-[#0F0F0F]">9 referral partnerships closed with 1M+ combined customer base</strong>, LTV/CAC above 4
+                  Built Xero Asia&rsquo;s channel partnerships function from scratch —{" "}
+                  <strong className="font-light text-[#0F0F0F]">
+                    9 referral partnerships closed with 1M+ combined customer base
+                  </strong>
+                  , LTV/CAC above 4
                 </CalloutItem>
                 <CalloutItem>
-                  Structured a creative partnership in Malaysia to unlock a government grant Xero couldn&rsquo;t access directly — drove <strong className="font-light text-[#0F0F0F]">80% increase in new customer acquisition</strong>
+                  Structured a creative partnership in Malaysia to unlock a
+                  government grant Xero couldn&rsquo;t access directly — drove{" "}
+                  <strong className="font-light text-[#0F0F0F]">
+                    80% increase in new customer acquisition
+                  </strong>
                 </CalloutItem>
               </ul>
 
               <SubHead>Events</SubHead>
               <ul>
                 <CalloutItem>
-                  Grew Xero Asia Roadshow partner revenue from <strong className="font-light text-[#0F0F0F]">S$13.5K (2022) to USD $33.5K (2025)</strong> — 100% exhibitor CSAT and 4,000+ leads generated for ecosystem partners across three years
+                  Grew Xero Asia Roadshow partner revenue from{" "}
+                  <strong className="font-light text-[#0F0F0F]">
+                    S$13.5K (2022) to USD $33.5K (2025)
+                  </strong>{" "}
+                  — 100% exhibitor CSAT and 4,000+ leads generated for ecosystem
+                  partners across three years
                 </CalloutItem>
               </ul>
             </div>
@@ -384,13 +462,28 @@ function Work() {
             />
             <ul>
               <CalloutItem>
-                <strong className="font-light text-[#0F0F0F]">Built Sapaad&rsquo;s Singapore business from the ground up</strong> — relocated to establish the APAC regional HQ, hired and managed a 5-person cross-functional team, and led full GTM strategy across Southeast Asia
+                <strong className="font-light text-[#0F0F0F]">
+                  Built Sapaad&rsquo;s Singapore business from the ground up
+                </strong>{" "}
+                — relocated to establish the APAC regional HQ, hired and managed a
+                5-person cross-functional team, and led full GTM strategy across
+                Southeast Asia
               </CalloutItem>
               <CalloutItem>
-                Landed integrations with <strong className="font-light text-[#0F0F0F]">foodpanda, Grab, Google, and Stripe</strong>; acquired 100+ restaurant brands across ASEAN; secured IMDA Pre-Approved Vendor status and an MOU with ITE Singapore making Sapaad the official software in their Hospitality curriculum
+                Landed integrations with{" "}
+                <strong className="font-light text-[#0F0F0F]">
+                  foodpanda, Grab, Google, and Stripe
+                </strong>
+                ; acquired 200+ restaurant brands across ASEAN; secured IMDA
+                Pre-Approved Vendor status and an MOU with ITE Singapore making
+                Sapaad the official software in their Hospitality curriculum
               </CalloutItem>
               <CalloutItem>
-                Closed <strong className="font-light text-[#0F0F0F]">200+ new restaurant accounts in Dubai in under two years</strong> before relocating to build the Singapore operation
+                Closed{" "}
+                <strong className="font-light text-[#0F0F0F]">
+                  200+ new restaurant accounts in Dubai in under two years
+                </strong>{" "}
+                before relocating to build the Singapore operation
               </CalloutItem>
             </ul>
 
@@ -505,12 +598,15 @@ function BuildCard({
 
 function Builds() {
   return (
-    <section id="builds" className="py-24 px-6 md:px-12">
+    <section id="builds" className="py-10 md:py-16 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-4">
           Builds
         </p>
-        <h2 className="font-fraunces font-light leading-tight text-[#0F0F0F] mb-14" style={{ fontSize: "clamp(28px, 4vw, 48px)" }}>
+        <h2
+          className="font-fraunces font-light leading-tight text-[#0F0F0F] mb-8 md:mb-10"
+          style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+        >
           What I&rsquo;ve built{" "}
           <em style={{ fontStyle: "italic", color: "#0F6E56" }}>for myself.</em>
         </h2>
@@ -522,7 +618,7 @@ function Builds() {
             description="A social TV tracking app — Letterboxd for television. Built with zero prior coding experience using Claude. Features TMDB search, genre swimlanes, a follow system, activity feeds, and ratings."
             tech={["Next.js", "Supabase", "TMDB API", "Vercel"]}
             link="https://tilfaz.vercel.app"
-            linkLabel="Live demo ↗"
+            linkLabel="Visit Tilfaz ↗"
           />
           <BuildCard
             icon={<IconGear />}
@@ -557,17 +653,17 @@ function TestimonialCard({
   initials: string;
 }) {
   return (
-    <div className="bg-white border border-black/10 rounded-2xl p-8 flex flex-col">
+    <div className="border border-white/10 rounded-2xl p-8 flex flex-col">
       <span
         className="font-fraunces text-[72px] leading-none text-[#0F6E56] select-none mb-2"
-        style={{ opacity: 0.15 }}
+        style={{ opacity: 0.4 }}
         aria-hidden="true"
       >
         &ldquo;
       </span>
 
       <p
-        className="font-fraunces font-light text-[17px] leading-[1.7] text-[#0F0F0F] flex-1 mb-8"
+        className="font-fraunces font-light text-[17px] leading-[1.7] text-white flex-1 mb-8"
         style={{ fontStyle: "italic" }}
       >
         {quote}
@@ -578,8 +674,10 @@ function TestimonialCard({
           {initials}
         </div>
         <div>
-          <p className="text-sm font-dm-sans font-light text-[#0F0F0F]">{name}</p>
-          <p className="text-xs font-dm-sans font-light text-[#999999] mt-0.5">{role}</p>
+          <p className="text-sm font-dm-sans font-light text-white">{name}</p>
+          <p className="text-xs font-dm-sans font-light text-white/50 mt-0.5">
+            {role}
+          </p>
         </div>
       </div>
     </div>
@@ -588,14 +686,22 @@ function TestimonialCard({
 
 function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 px-6 md:px-12 bg-white">
+    <section
+      id="testimonials"
+      className="py-10 md:py-16 px-6 md:px-12 bg-[#0F0F0F]"
+    >
       <div className="max-w-6xl mx-auto">
         <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-4">
           Testimonials
         </p>
-        <h2 className="font-fraunces font-light leading-tight text-[#0F0F0F] mb-14" style={{ fontSize: "clamp(28px, 4vw, 48px)" }}>
+        <h2
+          className="font-fraunces font-light leading-tight text-white mb-8 md:mb-10"
+          style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+        >
           What senior{" "}
-          <em style={{ fontStyle: "italic", color: "#0F6E56" }}>colleagues say.</em>
+          <em style={{ fontStyle: "italic", color: "#0F6E56" }}>
+            colleagues say.
+          </em>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -619,51 +725,134 @@ function Testimonials() {
 
 // ─── Certifications ──────────────────────────────────────────────────────────
 
-const certs = [
-  { name: "Google AI Professional Certificate", issuer: "Google", year: "2026" },
-  { name: "LV2 Foundational Negotiation", issuer: "The Maker Group", year: "2025" },
+type LogoPlaceholder = { type: "initials"; text: string; bg: string; color: string };
+type LogoImg = { type: "img"; src: string; width: number; height: number };
+type CertEntry = {
+  name: string;
+  issuer: string;
+  year: string;
+  link?: string;
+  logo?: LogoPlaceholder | LogoImg;
+};
+
+const certs: CertEntry[] = [
+  {
+    name: "Google AI Professional Certificate",
+    issuer: "Google",
+    year: "2026",
+    link: "https://www.coursera.org/account/accomplishments/specialization/DMEW9WM2HZSA",
+    logo: {
+      type: "img",
+      src: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+      width: 272,
+      height: 92,
+    },
+  },
+  {
+    name: "LV2 Foundational Negotiation",
+    issuer: "The Maker Group",
+    year: "2025",
+    link: "https://certificates.themakergroup.com/eccb5f04-11d6-468e-afd1-f66d2dbd61a6",
+    logo: { type: "initials", text: "TMG", bg: "#1a1a1a", color: "#c9a84c" },
+  },
   {
     name: "High-Impact Communication Skills; Managing Difficult Conversations",
     issuer: "Pinnacle Performance Company",
     year: "2025",
+    logo: { type: "initials", text: "PP", bg: "#c85a1a", color: "#ffffff" },
   },
-  { name: "Crucial Conversations for Mastering Dialogue", issuer: "Crucial Learning", year: "2025" },
+  {
+    name: "Crucial Conversations for Mastering Dialogue",
+    issuer: "Crucial Learning",
+    year: "2025",
+    logo: { type: "initials", text: "CC", bg: "#c0392b", color: "#ffffff" },
+  },
   {
     name: "B.Tech, Materials Engineering",
     issuer: "National Institute of Technology, Warangal · India",
     year: "2016",
+    link: "https://nitw.ac.in",
   },
 ];
 
+function CertLogo({ logo }: { logo: CertEntry["logo"] }) {
+  if (!logo) {
+    return <div className="w-12 h-12 shrink-0" />;
+  }
+  if (logo.type === "initials") {
+    return (
+      <div
+        className="w-12 h-12 rounded-xl shrink-0 flex items-center justify-center text-[11px] font-dm-sans font-light tracking-wide select-none"
+        style={{ backgroundColor: logo.bg, color: logo.color }}
+      >
+        {logo.text}
+      </div>
+    );
+  }
+  return (
+    <div className="w-14 h-12 shrink-0 flex items-center justify-center">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={logo.src}
+        alt=""
+        width={logo.width}
+        height={logo.height}
+        className="max-w-[52px] max-h-[28px] w-auto h-auto object-contain"
+      />
+    </div>
+  );
+}
+
 function Certifications() {
   return (
-    <section id="certifications" className="py-24 px-6 md:px-12">
+    <section id="certifications" className="py-10 md:py-16 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         <p className="text-xs font-dm-sans font-light tracking-widest uppercase text-[#0F6E56] mb-4">
           Credentials
         </p>
-        <h2 className="font-fraunces font-light leading-tight text-[#0F0F0F] mb-14" style={{ fontSize: "clamp(28px, 4vw, 48px)" }}>
+        <h2
+          className="font-fraunces font-light leading-tight text-[#0F0F0F] mb-8 md:mb-10"
+          style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+        >
           How I keep{" "}
           <em style={{ fontStyle: "italic", color: "#0F6E56" }}>sharpening.</em>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {certs.map((c) => (
-            <div
-              key={c.name}
-              className="bg-white border border-black/10 rounded-2xl px-6 py-5 flex items-start gap-4"
-            >
-              <span className="w-2 h-2 rounded-full bg-[#0F6E56] shrink-0 mt-[6px]" />
-              <div>
-                <p className="text-[15px] font-dm-sans font-light text-[#0F0F0F] leading-snug">
-                  {c.name}
-                </p>
-                <p className="text-[13px] font-dm-sans font-light text-[#999999] mt-1">
-                  {c.issuer} · {c.year}
-                </p>
+          {certs.map((c) => {
+            const inner = (
+              <div className="bg-white border border-black/10 rounded-2xl px-5 py-4 flex items-center gap-5 h-full">
+                <CertLogo logo={c.logo} />
+                <div className="flex-1 min-w-0">
+                  <p className="text-[14px] font-dm-sans font-light text-[#0F0F0F] leading-snug">
+                    {c.name}
+                  </p>
+                  <p className="text-[12px] font-dm-sans font-light text-[#999999] mt-1">
+                    {c.issuer} · {c.year}
+                  </p>
+                  {c.link && (
+                    <p className="text-[11px] font-dm-sans font-light text-[#0F6E56] mt-1.5">
+                      View credential ↗
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+
+            return c.link ? (
+              <a
+                key={c.name}
+                href={c.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:opacity-80 transition-opacity"
+              >
+                {inner}
+              </a>
+            ) : (
+              <div key={c.name}>{inner}</div>
+            );
+          })}
         </div>
       </div>
     </section>
