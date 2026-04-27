@@ -371,13 +371,6 @@ function Work() {
                 </strong>{" "}
                 to plug critical product gaps in HR/Payroll and Tenant Management
               </CalloutItem>
-              <CalloutItem>
-                <strong className="font-light text-[#0F0F0F]">
-                  S$13,500 in partner revenue
-                </strong>{" "}
-                generated at Xero Roadshow 2022 — oversold every exhibitor and
-                pitch slot
-              </CalloutItem>
             </ul>
 
             <div className="mt-4 pt-5 border-t border-black/10">
