@@ -599,7 +599,9 @@ function Builds() {
           </div>
           <div className="flex flex-wrap gap-2 sm:shrink-0">
             {["Claude", "Next.js", "Vercel"].map((t) => (
-              <TechPill key={t}>{t}</TechPill>
+              <span key={t} className="text-[11px] font-dm-sans font-light text-[#0F6E56] bg-white px-2.5 py-1 rounded-full">
+                {t}
+              </span>
             ))}
           </div>
         </div>
