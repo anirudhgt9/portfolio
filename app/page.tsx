@@ -731,6 +731,7 @@ function Builds() {
             title="Google × IMDA Challenge"
             description="Building an AI workflow for a real partnerships problem; selected as one of 500 professionals in Singapore's Skills Ignition AI Challenge."
             tech={["Google Gemini", "In progress"]}
+            image="/skillsignition.png"
           />
         </div>
 
