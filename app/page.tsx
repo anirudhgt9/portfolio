@@ -460,7 +460,7 @@ function Work() {
 
 const partnerLogos = [
   { src: "/foodpanda.svg",      alt: "foodpanda" },
-  { src: "/grab.png",           alt: "Grab" },
+  { src: "/grab.svg",           alt: "Grab" },
   { src: "/google.png",         alt: "Google" },
   { src: "/stripe.png",         alt: "Stripe" },
   { src: "/lalamove.png",       alt: "Lalamove" },
@@ -474,7 +474,6 @@ const partnerLogos = [
   { src: "/talenox.png",        alt: "Talenox" },
   { src: "/block71.png",        alt: "Block71" },
   { src: "/ite.png",            alt: "ITE" },
-  { src: "/paidchain.png",      alt: "PaidChain" },
   { src: "/fileai.png",         alt: "File AI" },
 ];
 
