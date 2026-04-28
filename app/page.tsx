@@ -459,7 +459,7 @@ function Work() {
 // ─── Partner Strip ───────────────────────────────────────────────────────────
 
 const partnerLogos = [
-  { src: "/foodpanda.png",      alt: "foodpanda" },
+  { src: "/foodpanda.svg",      alt: "foodpanda" },
   { src: "/grab.png",           alt: "Grab" },
   { src: "/google.png",         alt: "Google" },
   { src: "/stripe.png",         alt: "Stripe" },
@@ -518,12 +518,11 @@ function PartnerStrip() {
                 height: 36,
                 width: "auto",
                 objectFit: "contain",
-                filter: "grayscale(100%) opacity(60%)",
-                transition: "filter 0.2s ease",
+                transition: "transform 0.2s ease",
                 flexShrink: 0,
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.filter = "grayscale(0%) opacity(100%)")}
-              onMouseLeave={(e) => (e.currentTarget.style.filter = "grayscale(100%) opacity(60%)")}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             />
           ))}
         </div>
