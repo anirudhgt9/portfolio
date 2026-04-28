@@ -579,12 +579,14 @@ function FlipCard({
   tech,
   link,
   linkLabel,
+  image,
 }: {
   title: string;
   description: string;
   tech: string[];
   link?: string;
   linkLabel?: string;
+  image?: string;
 }) {
   const [flipped, setFlipped] = useState(false);
 
@@ -611,7 +613,16 @@ function FlipCard({
           className="flex flex-col md:flex-row rounded-2xl overflow-hidden border border-black/10"
         >
           {/* Image / placeholder */}
-          <div className="w-full h-[180px] md:w-[70%] md:h-full bg-[#E1F5EE] shrink-0" />
+          <div className="w-full h-[180px] md:w-[70%] md:h-full bg-[#E1F5EE] shrink-0" style={{ position: "relative", overflow: "hidden" }}>
+            {image && (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                src={image}
+                alt=""
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block", position: "absolute", top: 0, left: 0 }}
+              />
+            )}
+          </div>
 
           {/* Title panel */}
           <div className="flex-1 bg-white flex flex-col items-center justify-center relative px-6 py-4">
@@ -709,6 +720,7 @@ function Builds() {
             tech={["Next.js", "Supabase", "TMDB API", "Vercel", "Claude"]}
             link="https://tilfaz.vercel.app"
             linkLabel="Visit Tilfaz ↗"
+            image="/tilfaz.gif"
           />
           <FlipCard
             title="Job Search Pipeline"
