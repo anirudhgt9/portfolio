@@ -456,6 +456,82 @@ function Work() {
   );
 }
 
+// ─── Partner Strip ───────────────────────────────────────────────────────────
+
+const partnerLogos = [
+  { src: "/foodpanda.png",      alt: "foodpanda" },
+  { src: "/grab.png",           alt: "Grab" },
+  { src: "/google.png",         alt: "Google" },
+  { src: "/stripe.png",         alt: "Stripe" },
+  { src: "/lalamove.png",       alt: "Lalamove" },
+  { src: "/gprntai.png",        alt: "GPRNT AI" },
+  { src: "/kakitangan.png",     alt: "Kakitangan" },
+  { src: "/murho.png",          alt: "Murho" },
+  { src: "/jibble.png",         alt: "Jibble" },
+  { src: "/storehub.png",       alt: "StoreHub" },
+  { src: "/employmenthero.png", alt: "Employment Hero" },
+  { src: "/justlogin.png",      alt: "JustLogin" },
+  { src: "/talenox.png",        alt: "Talenox" },
+  { src: "/block71.png",        alt: "Block71" },
+  { src: "/ite.png",            alt: "ITE" },
+  { src: "/paidchain.png",      alt: "PaidChain" },
+  { src: "/fileai.png",         alt: "File AI" },
+];
+
+function PartnerStrip() {
+  const logos = [...partnerLogos, ...partnerLogos]; // duplicate for seamless loop
+  return (
+    <section className="py-10 md:py-16 px-6 md:px-12 bg-white">
+      <div className="max-w-6xl mx-auto mb-8">
+        <p className="text-[13px] font-dm-sans font-light tracking-[0.18em] uppercase text-[#0F6E56] mb-4">
+          Partners
+        </p>
+        <h2
+          className="font-fraunces font-light leading-tight text-[#0F0F0F]"
+          style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+        >
+          Some of the partnerships{" "}
+          <em style={{ fontStyle: "italic", color: "#0F6E56" }}>I&rsquo;ve built.</em>
+        </h2>
+      </div>
+
+      {/* Scrolling strip — overflow hidden on outer, no px so it bleeds edge to edge within section */}
+      <div className="overflow-hidden bg-white" style={{ marginLeft: "-1.5rem", marginRight: "-1.5rem" }}>
+        <div
+          className="flex"
+          style={{
+            animation: "scroll-left 30s linear infinite",
+            width: "max-content",
+            gap: "48px",
+            paddingLeft: "48px",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.animationPlayState = "paused")}
+          onMouseLeave={(e) => (e.currentTarget.style.animationPlayState = "running")}
+        >
+          {logos.map((logo, i) => (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              key={i}
+              src={logo.src}
+              alt={logo.alt}
+              style={{
+                height: 36,
+                width: "auto",
+                objectFit: "contain",
+                filter: "grayscale(100%) opacity(60%)",
+                transition: "filter 0.2s ease",
+                flexShrink: 0,
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.filter = "grayscale(0%) opacity(100%)")}
+              onMouseLeave={(e) => (e.currentTarget.style.filter = "grayscale(100%) opacity(60%)")}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Builds ──────────────────────────────────────────────────────────────────
 
 function TechPill({ children }: { children: React.ReactNode }) {
@@ -956,6 +1032,7 @@ export default function Page() {
         <Hero />
         <About />
         <Work />
+        <PartnerStrip />
         <Builds />
         <Testimonials />
         <Certifications />

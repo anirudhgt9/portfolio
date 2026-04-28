@@ -14,6 +14,11 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 body {
   background-color: #FAFAF8;
   color: #0F0F0F;
