@@ -591,7 +591,7 @@ function FlipCard({
   const [flipped, setFlipped] = useState(false);
 
   return (
-    <div style={{ perspective: "1200px" }} className="h-[400px]">
+    <div style={{ perspective: "1200px" }} className="h-[450px]">
       <div
         style={{
           position: "relative",
@@ -619,7 +619,7 @@ function FlipCard({
               <img
                 src={image}
                 alt=""
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block", position: "absolute", top: 0, left: 0 }}
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", display: "block", position: "absolute", top: 0, left: 0 }}
               />
             )}
           </div>
