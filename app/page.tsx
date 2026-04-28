@@ -1,28 +1,44 @@
 "use client";
 
 import { useState } from "react";
+import { RefreshCw, Menu, X } from "lucide-react";
 
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
+  { label: "Builds", href: "#builds" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "Credentials", href: "#certifications" },
+] as const;
+
 function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-[#0F0F0F]">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3">
-          <img src="/avatar-nav.png" alt="Anirudh Thandu" style={{ width: 32, height: 32, borderRadius: "50%", objectFit: "cover", objectPosition: "top center", display: "block", flexShrink: 0 }} />
-          <span className="font-fraunces text-[20px] font-light tracking-tight text-white">
-            Anirudh Thandu
-          </span>
-        </a>
+      <div className="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between gap-4">
+        {/* Left: hamburger (mobile) + logo */}
+        <div className="flex items-center gap-3">
+          <button
+            className="sm:hidden text-white p-1 shrink-0"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+          <a href="#" className="flex items-center gap-3">
+            <img src="/avatar-nav.png" alt="Anirudh Thandu" style={{ width: 32, height: 32, borderRadius: "50%", objectFit: "cover", objectPosition: "top center", display: "block", flexShrink: 0 }} />
+            <span className="font-fraunces text-[20px] font-light tracking-tight text-white">
+              Anirudh Thandu
+            </span>
+          </a>
+        </div>
 
+        {/* Desktop nav links */}
         <nav className="hidden sm:flex items-center gap-8">
-          {([
-            { label: "About", href: "#about" },
-            { label: "Work", href: "#work" },
-            { label: "Builds", href: "#builds" },
-            { label: "Testimonials", href: "#testimonials" },
-            { label: "Credentials", href: "#certifications" },
-          ] as const).map(({ label, href }) => (
+          {navLinks.map(({ label, href }) => (
             <a
               key={label}
               href={href}
@@ -33,13 +49,30 @@ function Nav() {
           ))}
         </nav>
 
+        {/* CTA — always visible */}
         <a
           href="mailto:anirudh.gt9@gmail.com"
-          className="inline-flex items-center gap-1 text-sm font-dm-sans font-light px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-[#0F0F0F] transition-colors"
+          className="inline-flex items-center gap-1 text-sm font-dm-sans font-light px-4 py-2 rounded-full border border-white text-white hover:bg-white hover:text-[#0F0F0F] transition-colors shrink-0"
         >
           Let&rsquo;s talk →
         </a>
       </div>
+
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div className="sm:hidden bg-[#0F0F0F] border-t border-white/10 px-6 py-5 flex flex-col gap-5">
+          {navLinks.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              onClick={() => setMenuOpen(false)}
+              className="text-[16px] font-dm-sans font-light text-[#CCCCCC] hover:text-white transition-colors"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
@@ -540,22 +573,100 @@ function TechPill({ children }: { children: React.ReactNode }) {
   );
 }
 
-function IconTV() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="3" width="20" height="14" rx="2" />
-      <line x1="8" y1="21" x2="16" y2="21" />
-      <line x1="12" y1="17" x2="12" y2="21" />
-    </svg>
-  );
-}
+function FlipCard({
+  title,
+  description,
+  tech,
+  link,
+  linkLabel,
+}: {
+  title: string;
+  description: string;
+  tech: string[];
+  link?: string;
+  linkLabel?: string;
+}) {
+  const [flipped, setFlipped] = useState(false);
 
-function IconGear() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="3" />
-      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
-    </svg>
+    <div style={{ perspective: "1200px" }} className="h-[340px] md:h-[280px]">
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "100%",
+          transformStyle: "preserve-3d",
+          transition: "transform 0.6s ease-in-out",
+          transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+        }}
+      >
+        {/* Front */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+          }}
+          className="flex flex-col md:flex-row rounded-2xl overflow-hidden border border-black/10"
+        >
+          {/* Image / placeholder */}
+          <div className="w-full h-[180px] md:w-[70%] md:h-full bg-[#E1F5EE] shrink-0" />
+
+          {/* Title panel */}
+          <div className="flex-1 bg-white flex flex-col items-center justify-center relative px-6 py-4">
+            <h3 className="font-fraunces font-light text-[24px] md:text-[28px] text-[#0F0F0F] text-center leading-tight">
+              {title}
+            </h3>
+            <div className="absolute bottom-4 right-4 group">
+              <button
+                onClick={() => setFlipped(true)}
+                className="text-[#0F6E56] hover:opacity-70 transition-opacity"
+                aria-label="See details"
+              >
+                <RefreshCw size={20} />
+              </button>
+              <div className="pointer-events-none absolute bottom-full right-0 mb-2 whitespace-nowrap bg-[#0F0F0F] text-white text-[11px] font-dm-sans font-light px-2.5 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+                See details
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Back */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+          }}
+          className="rounded-2xl border border-black/10 bg-white p-7 flex flex-col"
+        >
+          <h3 className="font-fraunces font-light text-[22px] text-[#0F0F0F] mb-3">{title}</h3>
+          <p className="text-[14px] font-dm-sans font-light text-[#555555] leading-[1.7] mb-4 flex-1">
+            {description}
+          </p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {tech.map((t) => <TechPill key={t}>{t}</TechPill>)}
+          </div>
+          {link && (
+            <a href={link} target="_blank" rel="noopener noreferrer"
+              className="text-sm font-dm-sans font-light text-[#0F6E56] hover:underline">
+              {linkLabel ?? "Live demo ↗"}
+            </a>
+          )}
+          <button
+            onClick={() => setFlipped(false)}
+            className="absolute bottom-4 right-4 text-[#0F6E56] hover:opacity-70 transition-opacity"
+            aria-label="Flip back"
+          >
+            <RefreshCw size={20} />
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -576,71 +687,6 @@ function IconMail() {
   );
 }
 
-function IconFlask() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9 3h6M9 3v6l-6 10.5A1 1 0 0 0 4 21h16a1 1 0 0 0 .87-1.5L15 9V3" />
-      <line x1="6.5" y1="14" x2="17.5" y2="14" />
-    </svg>
-  );
-}
-
-function BuildCard({
-  icon,
-  title,
-  description,
-  tech,
-  link,
-  linkLabel,
-  comingSoon,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  tech: string[];
-  link?: string;
-  linkLabel?: string;
-  comingSoon?: boolean;
-}) {
-  return (
-    <div className="bg-white border border-black/10 rounded-2xl p-6 flex flex-col">
-      <div className="w-11 h-11 rounded-xl bg-[#E1F5EE] text-[#0F6E56] flex items-center justify-center mb-5 shrink-0">
-        {icon}
-      </div>
-
-      <h3 className="font-fraunces font-light text-[22px] text-[#0F0F0F] mb-3">
-        {title}
-      </h3>
-
-      <p className="text-[14px] font-dm-sans font-light text-[#555555] leading-[1.7] mb-5 flex-1">
-        {description}
-      </p>
-
-      <div className="flex flex-wrap gap-2 mb-5">
-        {tech.map((t) => (
-          <TechPill key={t}>{t}</TechPill>
-        ))}
-      </div>
-
-      {link && (
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm font-dm-sans font-light text-[#0F6E56] hover:underline"
-        >
-          {linkLabel ?? "Live demo ↗"}
-        </a>
-      )}
-      {comingSoon && (
-        <span className="text-sm font-dm-sans font-light text-[#999999]">
-          Coming soon
-        </span>
-      )}
-    </div>
-  );
-}
-
 function Builds() {
   return (
     <section id="builds" className="py-10 md:py-16 px-6 md:px-12">
@@ -656,27 +702,23 @@ function Builds() {
           <em style={{ fontStyle: "italic", color: "#0F6E56" }}>for myself.</em>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <BuildCard
-            icon={<IconTV />}
+        <div className="flex flex-col gap-6">
+          <FlipCard
             title="Tilfaz"
             description="A social TV tracking app: Letterboxd for television. Built with zero prior coding experience using Claude. Features TMDB search, genre swimlanes, a follow system, activity feeds, and ratings."
             tech={["Next.js", "Supabase", "TMDB API", "Vercel", "Claude"]}
             link="https://tilfaz.vercel.app"
             linkLabel="Visit Tilfaz ↗"
           />
-          <BuildCard
-            icon={<IconGear />}
+          <FlipCard
             title="Job Search Pipeline"
             description="An automated job search system built with Claude, Gmail, Google Drive, and Apollo.io. Reads LinkedIn job alerts daily, scores and tailors applications, and logs everything to a Google Sheets dashboard."
             tech={["Claude", "Gmail", "Apollo.io", "Google Sheets", "Cowork"]}
           />
-          <BuildCard
-            icon={<IconFlask />}
+          <FlipCard
             title="Google × IMDA Challenge"
             description="Building an AI workflow for a real partnerships problem; selected as one of 500 professionals in Singapore's Skills Ignition AI Challenge."
             tech={["Google Gemini", "In progress"]}
-            comingSoon
           />
         </div>
 
