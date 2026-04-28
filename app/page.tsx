@@ -591,7 +591,7 @@ function FlipCard({
   const [flipped, setFlipped] = useState(false);
 
   return (
-    <div style={{ perspective: "1200px" }} className="h-[340px] md:h-[280px]">
+    <div style={{ perspective: "1200px" }} className="h-[400px]">
       <div
         style={{
           position: "relative",
