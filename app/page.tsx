@@ -580,6 +580,7 @@ function FlipCard({
   link,
   linkLabel,
   image,
+  imageFit = "cover",
 }: {
   title: string;
   description: string;
@@ -587,6 +588,7 @@ function FlipCard({
   link?: string;
   linkLabel?: string;
   image?: string;
+  imageFit?: "cover" | "contain";
 }) {
   const [flipped, setFlipped] = useState(false);
 
@@ -613,13 +615,13 @@ function FlipCard({
           className="flex flex-col md:flex-row rounded-2xl overflow-hidden border border-black/10"
         >
           {/* Image / placeholder */}
-          <div className="w-full h-[180px] md:w-[70%] md:h-full bg-[#E1F5EE] shrink-0" style={{ position: "relative", overflow: "hidden" }}>
+          <div className="w-full h-[180px] md:w-[70%] md:h-full bg-[#E1F5EE] shrink-0" style={{ position: "relative", overflow: "hidden", backgroundColor: image && imageFit === "contain" ? "#ffffff" : undefined }}>
             {image && (
               /* eslint-disable-next-line @next/next/no-img-element */
               <img
                 src={image}
                 alt=""
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", display: "block", position: "absolute", top: 0, left: 0 }}
+                style={{ width: "100%", height: "100%", objectFit: imageFit, objectPosition: imageFit === "contain" ? "center" : "top center", display: "block", position: "absolute", top: 0, left: 0 }}
               />
             )}
           </div>
@@ -732,6 +734,7 @@ function Builds() {
             description="Building an AI workflow for a real partnerships problem; selected as one of 500 professionals in Singapore's Skills Ignition AI Challenge."
             tech={["Google Gemini", "In progress"]}
             image="/skillsignition.png"
+            imageFit="contain"
           />
         </div>
 
