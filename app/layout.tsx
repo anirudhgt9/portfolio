@@ -31,6 +31,9 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${dmSans.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://tilfaz.vercel.app" />
+      </head>
       <body className="antialiased">{children}</body>
     </html>
   );
